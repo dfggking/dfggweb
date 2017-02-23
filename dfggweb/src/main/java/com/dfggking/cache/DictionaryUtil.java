@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.springframework.dao.DataAccessException;
 
 import com.dfggking.web.common.base.BaseServiceImpl;
 import com.dfggking.web.vo.DicVo;
@@ -25,7 +26,7 @@ public class DictionaryUtil extends BaseServiceImpl {
 	/** 系统字典集合 */
 	private static List<DicVo> dictionaryList = new ArrayList<DicVo>();
 
-	private DictionaryUtil() {}
+//	private DictionaryUtil() {}
 
 	public static DictionaryUtil getInstance() {
 		return dictionaryUtil;
@@ -35,25 +36,18 @@ public class DictionaryUtil extends BaseServiceImpl {
 
 	/**
 	 * 初始化系统字典
-	 * 
-	 * @param refresh
-	 * @param jdbc
 	 * @return
 	 */
-	public boolean initDictionaryList(boolean refresh) {
+	@SuppressWarnings("unchecked")
+	public void initDictionaryList(boolean refresh) {
 		if (refresh || dictionaryList.isEmpty()) {
-			String sql = "select dic_id,dic_name,dic_code,dic_value,parent_id,dic_memo,dic_sort from xfz_dictionary";
-			
-			
-//			try {
-//				dictionaryList = jdbc.query(sql, DICTIONARYMAPPER);
-//				log.info("=============系统字典初始化成功=====================");
-//				return true;
-//			} catch (DataAccessException e) {
-//				log.error("initDictionaryList error!", e);
-//			}
+			try {
+				dictionaryList = (List<DicVo>) hdao.getHibernateTemplate().find("from Dic");
+			} catch (DataAccessException e) {
+				// TODO: handle exception
+				log.error("initDictionaryList error!", e);
+			}
 		}
-		return false;
 	}
 
 
