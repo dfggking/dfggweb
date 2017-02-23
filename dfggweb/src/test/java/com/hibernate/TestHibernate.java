@@ -20,7 +20,7 @@ public class TestHibernate extends AbstractJUnit4SpringContextTests {
 	public void testHello() {
 		
 		
-		
+		System.out.println(123);
 		
 		
 		
