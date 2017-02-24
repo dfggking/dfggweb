@@ -1,13 +1,5 @@
 package com.dfggking.support.wechat;
 
-import java.text.MessageFormat;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import com.dfggking.cache.DictionaryUtil;
-
-
 /**
  * 
  * <p>微信api接口工具</p>

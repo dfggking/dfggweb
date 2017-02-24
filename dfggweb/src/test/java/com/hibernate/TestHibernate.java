@@ -19,10 +19,5 @@ public class TestHibernate extends AbstractJUnit4SpringContextTests {
 	@Test
 	public void testHello() {
 		
-		
-		
-		
-		
-//		indexService.testService();
 	}
 }

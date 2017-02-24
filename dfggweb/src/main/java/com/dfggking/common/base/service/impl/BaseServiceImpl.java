@@ -1,4 +1,4 @@
-package com.dfggking.web.common.base;
+package com.dfggking.common.base.service.impl;
 
 import java.io.Serializable;
 
@@ -10,7 +10,8 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.dfggking.web.common.dao.HibernateDao;
+import com.dfggking.common.base.service.IBaseService;
+import com.dfggking.common.dao.HibernateDao;
 
 public class BaseServiceImpl implements IBaseService {
 	

@@ -1,4 +1,4 @@
-package com.dfggking.web.common.base;
+package com.dfggking.common.base.controller;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;

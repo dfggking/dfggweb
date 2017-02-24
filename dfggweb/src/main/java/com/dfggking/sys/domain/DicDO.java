@@ -1,4 +1,4 @@
-package com.dfggking.web.po;
+package com.dfggking.sys.domain;
 
 // Generated 2017-2-22 8:54:08 by Hibernate Tools 5.2.0.CR1
 
@@ -12,8 +12,23 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "dic", catalog = "dfgg_db")
-public class Dic implements java.io.Serializable {
+public class DicDO implements java.io.Serializable {
 
+	/**
+	 * <p></p>
+	 * <pre></pre>
+	 * @author jinyf   
+	 * @date 2017年2月23日 下午9:56:12 
+	 * @since  
+	 */
+	private static final long serialVersionUID = 1L;
+	/**   
+	 * <p></p>
+	 * <pre></pre>
+	 * @author jinyf   
+	 * @date 2017年2月23日 下午9:54:59 
+	 * @since  
+	 */
 	private String id;
 	private String dicName;
 	private String dicCode;
@@ -22,14 +37,14 @@ public class Dic implements java.io.Serializable {
 	private String remark;
 	private String sort;
 
-	public Dic() {
+	public DicDO() {
 	}
 
-	public Dic(String id) {
+	public DicDO(String id) {
 		this.id = id;
 	}
 
-	public Dic(String id, String dicName, String dicCode, String dicValue, String parentId, String remark,
+	public DicDO(String id, String dicName, String dicCode, String dicValue, String parentId, String remark,
 			String sort) {
 		this.id = id;
 		this.dicName = dicName;

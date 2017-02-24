@@ -1,4 +1,4 @@
-package com.dfggking.web.common.base;
+package com.dfggking.common.base.service;
 
 import java.io.Serializable;
 

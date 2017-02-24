@@ -49,6 +49,12 @@
 			org.springframework.web.context.ContextLoaderListener
 		</listener-class>
   	</listener>
+  	<!-- 自定义全局监听器 -->
+  	<listener>
+        <listener-class>
+            com.dfggking.common.interceptors.GlobalListener
+        </listener-class>
+    </listener>
   	<servlet>
 	    <servlet-name>dispatcherServlet</servlet-name>
 	    <servlet-class>

@@ -1,4 +1,4 @@
-package com.dfggking.web.common.dao;
+package com.dfggking.common.dao;
 
 import com.dfggking.util.prop.Prop;
 import com.dfggking.util.prop.PropDefault;
