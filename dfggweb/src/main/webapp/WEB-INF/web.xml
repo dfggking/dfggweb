@@ -52,7 +52,7 @@
   	<!-- 自定义全局监听器 -->
   	<listener>
         <listener-class>
-            com.dfggking.common.interceptors.GlobalListener
+            com.dfggking.common.listener.GlobalListener
         </listener-class>
     </listener>
   	<servlet>

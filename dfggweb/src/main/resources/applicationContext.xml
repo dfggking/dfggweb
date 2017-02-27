@@ -37,7 +37,7 @@
     
     <!-- 设置对类的注解进行扫描，创建Bean及自动依赖注入 -->
     <context:component-scan base-package="com.dfggking.common, com.dfggking.cache"/>
-    <context:component-scan base-package="com.dfggking.sys.service" />
+    <context:component-scan base-package="com.dfggking.sys.controller, com.dfggking.sys.service" />
     <context:component-scan base-package="com.dfggking.web.controller, com.dfggking.web.service" />
     
 	<!-- 配置 Hibernate SessionFactory -->

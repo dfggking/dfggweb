@@ -1,8 +1,11 @@
 package com.dfggking.support.wechat;
 
+import java.util.Objects;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import com.dfggking.cache.DictConfig;
 import com.dfggking.util.prop.Prop;
 
 
@@ -17,12 +20,40 @@ public class TokenThread extends WeixinAPIHelper implements Runnable{
 	private static Log log = LogFactory.getLog(TokenThread.class);
 
 	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-		
+	public void run(){
+		while(true){
+			try{
+				//首次启动线程时获取AccessToken
+				access_token = getAccessToken(CorpId, Secret);
+				try {
+					if(access_token == null){
+						log.info("获取AccessToken失败，请检查网络是否正常，1分钟后将再次获取！");
+						Thread.sleep(1000 * 60);
+					}
+					/**
+					 * 当首次成功获取到AccessToken后，
+					 * 开始计时30分钟重新获取一次AccessToken
+					 */
+					if(access_token != null){
+						String timer = DictConfig.getInstance().getSysDictValueByCode("getAccessTokenTimer");
+						int accessTokenTimer = Objects.isNull(timer) ? 60 : Integer.parseInt(timer);
+						//配置的定时时长小于1分钟或者大于119分钟则自动设置为60分钟
+						if(accessTokenTimer < 1 || accessTokenTimer > 119){
+							accessTokenTimer = 60;
+						}
+						log.info("成功获取AccessToken="+access_token + "," + accessTokenTimer + "分钟后将重新获取！");
+						Thread.sleep(1000 * 60 * accessTokenTimer);
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}catch(Exception ex){
+				log.error("定时获取AccessToken出错",ex);
+			}
+		}
 	}
 	
-	/*public void start(){
+	public void start(){
 		
 		//初始化微信配置
 		initWechatConfig();
@@ -39,39 +70,5 @@ public class TokenThread extends WeixinAPIHelper implements Runnable{
 		}
 	}
 	
-	public void run(){
-		while(true){
-			try{
-				//首次启动线程时获取AccessToken
-				access_token = getAccessToken(CorpId, Secret);
-				try {
-					if(access_token == null){
-						//定时刷新微信部门及用户缓存
-						refreshDepartList();
-						refreshUserList();
-						log.info("获取AccessToken失败，请检查网络是否正常，1分钟后将再次获取！");
-						Thread.sleep(1000 * 60);
-					}
-					*//**
-					 * 当首次成功获取到AccessToken后，
-					 * 开始计时30分钟重新获取一次AccessToken
-					 *//*
-					if(access_token != null){
-						String timer = DictionaryUtil.getInstance().getSysDictValueByCode("getAccessTokenTimer");
-						int accessTokenTimer = StringHelper.isNullOrEmpty(timer) ? 60 : Integer.parseInt(timer);
-						//配置的定时时长小于1分钟或者大于119分钟则自动设置为60分钟
-						if(accessTokenTimer < 1 || accessTokenTimer > 119){
-							accessTokenTimer = 60;
-						}
-						log.info("成功获取AccessToken="+access_token + "," + accessTokenTimer + "分钟后将重新获取！");
-						Thread.sleep(1000 * 60 * accessTokenTimer);
-					}
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}catch(Exception ex){
-				log.error("定时获取AccessToken出错",ex);
-			}
-		}
-	}*/
+	
 }

@@ -13,10 +13,12 @@ import com.dfggking.util.ResourcesHelper;
 import com.dfggking.util.StringManager;
 
 /**
- * 获取配置信息的帮助类。
  * 
- * @author LiuBo
- * 
+ * <p>获取配置信息的帮助类</p>
+ * <pre></pre>
+ * @author jinyf   
+ * @date 2017年2月25日 上午10:45:49 
+ * @since 1.0
  */
 public abstract class Prop {
 
@@ -27,7 +29,7 @@ public abstract class Prop {
 	private static final StringManager sm = StringManager.getManager(Constants.PACKAGENAME);
 
 	/** 配置文件默认路径 */
-	protected static final String PATH_DEFAULT = "config.properties";
+	protected static final String PATH_DEFAULT = "wechatConfig.properties";
 
 	/** 初始化锁 */
 	protected static final Object LOCK = new Object();
