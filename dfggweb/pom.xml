@@ -41,10 +41,6 @@
   		<artifactId>mysql-connector-java</artifactId>
   	</dependency>
   	<dependency>
-  		<groupId>commons-httpclient</groupId>
-  		<artifactId>commons-httpclient</artifactId>
-  	</dependency>
-  	<dependency>
   		<groupId>tomcat</groupId>
   		<artifactId>servlet-api</artifactId>
   		<scope>provided</scope>
@@ -75,8 +71,8 @@
   		<artifactId>spring-aspects</artifactId>
   	</dependency>
   	<dependency>
-  		<groupId>javax.servlet.jsp.jstl</groupId>
-  		<artifactId>jstl-api</artifactId>
+  		<groupId>org.apache.httpcomponents</groupId>
+  		<artifactId>httpclient</artifactId>
   	</dependency>
   </dependencies>
   <dependencyManagement>
@@ -111,11 +107,6 @@
   			<groupId>mysql</groupId>
   			<artifactId>mysql-connector-java</artifactId>
   			<version>6.0.5</version>
-  		</dependency>
-  		<dependency>
-  			<groupId>commons-httpclient</groupId>
-  			<artifactId>commons-httpclient</artifactId>
-  			<version>3.1</version>
   		</dependency>
   		<dependency>
   			<groupId>log4j</groupId>
@@ -161,6 +152,11 @@
   			<groupId>javax.servlet.jsp.jstl</groupId>
   			<artifactId>jstl-api</artifactId>
   			<version>1.2-rev-1</version>
+  		</dependency>
+  		<dependency>
+  			<groupId>org.apache.httpcomponents</groupId>
+  			<artifactId>httpclient</artifactId>
+  			<version>4.5.3</version>
   		</dependency>
   	</dependencies>
   </dependencyManagement>

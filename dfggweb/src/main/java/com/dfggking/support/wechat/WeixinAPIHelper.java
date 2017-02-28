@@ -1,6 +1,29 @@
 package com.dfggking.support.wechat;
 
-import com.dfggking.cache.DictConfig;
+import java.io.IOException;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
+import java.text.MessageFormat;
+
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.X509TrustManager;
+
+import org.apache.http.HttpHost;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.conn.HttpClientConnectionManager;
+import org.apache.http.conn.SchemePortResolver;
+import org.apache.http.conn.UnsupportedSchemeException;
+import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
+import org.apache.http.impl.client.BasicResponseHandler;
+import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 /**
  * 
@@ -12,24 +35,18 @@ import com.dfggking.cache.DictConfig;
  */
 public class WeixinAPIHelper {
 	
-	public static String CorpId;
-	public static String agentId;
-	public static String Token;
-	public static String EncodingAESKey;
-	public static String EVENT_WECHART_OPEN_KEY;	//开启微信通知事件Key
-	public static String EVENT_WECHART_CLOSE_KEY;	//关闭微信通知事件Key
-	protected static String Secret;
+	private final static Logger log = LogManager.getLogger(WeixinAPIHelper.class);
+	
+	public static String APPID; // 应用ID
+	public static String SECRET; // 秘钥
 	protected static String access_token;
 	
+	
+	private static HttpClient webClient = null;
 	/**
 	 * 获取token接口
 	 */
 	protected static String getTokenUrl;
-	/**
-	 * 获取微信用户信息接口
-	 */
-	protected static String getUserInfoUrl;
-	protected static String getUserInfoByCodeUrl;
 	/**
 	 * 创建菜单
 	 */
@@ -38,60 +55,99 @@ public class WeixinAPIHelper {
 	 * 初始化微信配置
 	 */
 	public static void initWechatConfig(){
-		DictConfig dictConfig = DictConfig.getInstance();
-		//从字典表获取微信配置信息
-		CorpId = dictConfig.getSysDictValueByCode("CorpId");
-		Secret = dictConfig.getSysDictValueByCode("Secret");
-		agentId = dictConfig.getSysDictValueByCode("agentId");
-		
-		/** ---------微信回调模式密钥配置-----------begin*/
-		Token = dictConfig.getSysDictValueByCode("Token");
-		EncodingAESKey = dictConfig.getSysDictValueByCode("EncodingAESKey");
-		EVENT_WECHART_OPEN_KEY = dictConfig.getSysDictValueByCode("EVENT_WECHART_OPEN_KEY");	//开启微信通知事件Key
-		EVENT_WECHART_CLOSE_KEY = dictConfig.getSysDictValueByCode("EVENT_WECHART_CLOSE_KEY");	//关闭微信通知事件Key
-		/** ---------微信回调模式密钥配置-----------end*/
-		
+		APPID = "";
+		SECRET = "";
 	}
 	
-	
 	/**
-	 * @desc 获取授权token
+	 * 获取授权token
+	 * <p></p>
+	 * <pre></pre>
 	 * @param corpId
 	 * @param secret
 	 * @return
+	 * @author jinyf   
+	 * @date 2017年2月28日 上午11:07:31 
+	 * @since
 	 */
 	protected static String getAccessToken(String corpId, String secret) {
 		String accessToken = null;
-//		try {
-//			log.info("getAccessToken start.{corpId=" + corpId + ",secret:"
-//					+ secret + "}");
-//			String url = MessageFormat.format(getTokenUrl, corpId, secret);
-//			String response = executeHttpGet(url);
-//			accessToken = (String)JsonUtil.jsonUtil.readObjectByKey(response, "access_token");
-//			
-//			
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			log.error("get access toekn exception", e);
-//		}
-//		
-//		 
-//		try{
-//			List<XfzDictionaryVo> list=DictionaryUtil.getInstance().getSysDictListByCode("synchroAccessToken");
-//			if(list!=null){
-//				for(XfzDictionaryVo vo:list){
-//					setTokenUrl=vo.getDicValue();
-//					Map<String,String> param=new HashMap<String,String>();
-//					param.put("token", accessToken);
-//					HttpHelper.postHttpClient(setTokenUrl, param);
-//				}
-//			}
-//			
-//		}catch(Exception ex){
-//			
-//		}
+		try {
+			log.info("getAccessToken start.{corpId=" + corpId + ",secret:" + secret + "}");
+			String url = MessageFormat.format(getTokenUrl, corpId, secret);
+			String response = executeHttpGet(url);
+			accessToken = (String)JsonUtil.jsonUtil.readObjectByKey(response, "access_token");
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			log.error("get access toekn exception", e);
+		}
+		
 		return accessToken;
 	}
 	
+	private static String executeHttpGet(String url) throws ClientProtocolException, IOException {
+		ResponseHandler<?> responseHandler = new BasicResponseHandler();
+		if(webClient == null){
+			initWebClient();
+		}
+		String response = (String) webClient.execute(new HttpGet(url), responseHandler);
+		return response;
+	}
 	
+	/**
+	 * 初始化创建 WebClient
+	 * <p></p>
+	 * <pre></pre>
+	 * @author jinyf   
+	 * @date 2017年2月28日 上午9:31:37 
+	 * @since 1.0
+	 */
+	private static void initWebClient() {
+		try {
+			
+			PoolingHttpClientConnectionManager phccMrg = new PoolingHttpClientConnectionManager();
+			/** 将最大连接数设置为10 */
+			phccMrg.setMaxTotal(10);
+			SSLContext sslContext = SSLContext.getInstance("TLS");
+//			sslContext.init(null, new X509TrustManager[]{ tm }, null);
+			
+			HostnameVerifier host = new HostnameVerifier() {
+				
+				@Override
+				public boolean verify(java.lang.String hostname, SSLSession session) {
+					// TODO Auto-generated method stub
+					return false;
+				}
+			};
+			HttpClientBuilder httpClientBuilder = HttpClientBuilder.create();
+			SSLConnectionSocketFactory ssf = new SSLConnectionSocketFactory(sslContext, host);
+			SchemePortResolver sch = new SchemePortResolver() {
+				
+				@Override
+				public int resolve(HttpHost host) throws UnsupportedSchemeException {
+					return 0;
+				}
+			};
+			
+			SchemePortResolver sch = new SchemePortResolver("https", 443, ssf);
+			tcm.getSchemeRegistry().register(sch);
+			webClient = null;
+		} catch (Exception ex) {
+			log.error("initWebClient exception", ex);
+		} finally {
+			log.info("initWebClient end....");
+		}
+	}
+
 }
+
+
+
+
+
+
+
+
+

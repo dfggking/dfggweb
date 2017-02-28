@@ -21,9 +21,9 @@
 
 	<!-- 数据源 -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" scope="singleton">
-		<property name="username" value="" />
-		<property name="password" value="" />
-		<property name="url" value="" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="url" value="${jdbc.url}" />
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
 		<property name="maxWait" value="80000" />
 		<property name="maxActive" value="20" />
@@ -71,7 +71,41 @@
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	
+	<!-- 初始化自定义配置 -->
 	<bean id="dictConfig" class="com.dfggking.cache.DictConfig" init-method="init"></bean>
+	
+	<!-- 定义连接管理器 -->
+	<bean id="httpClientConnectionManager" class="org.apache.http.impl.conn.PoolingHttpClientConnectionManager" destroy-method="close">
+	   
+	   <!-- 最大连接数 -->
+	   <property name="maxTotal" value="${httpClient.maxTotal}" />
+	   <!-- 设置每个主机地址的并发数 -->
+	   <property name="defaultMaxPerRoute" value="${httpClient.defaultMaxPerRoute}" />
+	</bean>
+	<!-- httpclient对象构造器 -->
+	<bean id="httpClientBuilder" class="org.apache.http.impl.client.HttpClientBuilder">
+	   <property name="connectionManager" ref="httpClientConnectionManager" />
+	</bean>
+	<!-- 定义httpclient对象 -->
+	<bean id="httpClient" class="org.apache.http.impl.client.CloseableHttpClient" 
+	   factory-bean="httpClientBuilder" factory-method="build" scope="prototype">
+    </bean>
+    <!-- 轻易清理无效连接线程 -->
+    <bean class="com.dfggking.common.httpclient.IdleConnectionEvictor" destroy-method="shutdown">
+        <constructor-arg index="0" ref="httpClientConnectionManager"></constructor-arg>
+    </bean>
+	<bean id="requestConfigBuilder" class="org.apache.http.client.config.RequestConfig.Builder">
+	   <!-- 创建连接的最长时间 -->
+	   <property name="connectTimeout" value="${httpClient.connectTimeout}" />
+	   <!-- 从连接池中获取到连接的最长时间 -->
+	   <property name="connectionRequestTimeout" value="${httpClient.connectionRequestTimeout}" />
+	   <!-- 数据传输的最长时间 -->
+	   <property name="socketTimeout" value="${httpClient.socketTimeout}" />
+	   <!-- 提交请求前测试连接是否可用 -->
+	   <property name="staleConnectionCheckEnabled" value="${httpClient.staleConnectionCheckEnabled}" />
+	</bean>
+	<!-- 定义请求参数 -->
+	<bean id="requestConfig" class="org.apache.http.client.config.RequestConfig" factory-bean="requestConfigBuilder" factory-method="build" />
 	
 	<!-- 配置事务传播特性 -->
     <!-- <tx:advice id="transactionAdvice" transaction-manager="transactionManager">
@@ -86,6 +120,15 @@
     <aop:config  proxy-target-class="true">
         <aop:advisor pointcut="execution(* com.dfggking.service.*.*(..))" advice-ref="transactionAdvice" /> 配置哪些类的哪些方法参与事务 
     </aop:config> -->
+    
+    <bean id="propertyConfig" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:httpClient.properties</value>
+                <value>classpath:jdbc.properties</value>
+            </list>
+        </property> 
+    </bean>
 </beans>
 
 

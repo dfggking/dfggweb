@@ -5,7 +5,6 @@ import java.util.Objects;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.dfggking.cache.DictConfig;
 import com.dfggking.util.prop.Prop;
 
 
@@ -19,12 +18,26 @@ public class TokenThread extends WeixinAPIHelper implements Runnable{
 	
 	private static Log log = LogFactory.getLog(TokenThread.class);
 
+	public void start(){
+		
+		//初始化微信配置
+		initWechatConfig();
+		getTokenUrl = Prop.getString("getTokenUrl");
+		
+		if(access_token == null){
+			//启动定时获取AccessToken线程
+			new Thread(this).start();
+			log.info("============定时获取AccessToken线程启动==============");
+		}
+	}
+	
+	
 	@Override
 	public void run(){
 		while(true){
 			try{
 				//首次启动线程时获取AccessToken
-				access_token = getAccessToken(CorpId, Secret);
+				access_token = getAccessToken(APPID, SECRET);
 				try {
 					if(access_token == null){
 						log.info("获取AccessToken失败，请检查网络是否正常，1分钟后将再次获取！");
@@ -35,7 +48,8 @@ public class TokenThread extends WeixinAPIHelper implements Runnable{
 					 * 开始计时30分钟重新获取一次AccessToken
 					 */
 					if(access_token != null){
-						String timer = DictConfig.getInstance().getSysDictValueByCode("getAccessTokenTimer");
+//						String timer = DictConfig.getInstance().getSysDictValueByCode("getAccessTokenTimer");
+						String timer = "60"; 
 						int accessTokenTimer = Objects.isNull(timer) ? 60 : Integer.parseInt(timer);
 						//配置的定时时长小于1分钟或者大于119分钟则自动设置为60分钟
 						if(accessTokenTimer < 1 || accessTokenTimer > 119){
@@ -52,23 +66,4 @@ public class TokenThread extends WeixinAPIHelper implements Runnable{
 			}
 		}
 	}
-	
-	public void start(){
-		
-		//初始化微信配置
-		initWechatConfig();
-		
-		getTokenUrl = Prop.getString("getTokenUrl");
-		getUserInfoUrl = Prop.getString("getUserInfoUrl");
-		getUserInfoByCodeUrl = Prop.getString("getUserInfoByCodeUrl");
-		createMenuUrl = Prop.getString("createMenu");
-		
-		if(access_token == null){
-			//启动定时获取AccessToken线程
-			new Thread(this).start();
-			log.info("============定时获取AccessToken线程启动==============");
-		}
-	}
-	
-	
 }
