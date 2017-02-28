@@ -33,7 +33,7 @@ public class TestHibernate extends AbstractJUnit4SpringContextTests {
 	 */
 	@Test
 	public void testHttpClient() throws IOException {
-		HttpResult httpResult = httpclient.doPost("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx9cfeb6674c0d9f5b&secret=ec64d02a1b86385511466efdc02e0228");
+		HttpResult httpResult = httpclient.doPost("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=SECRET");
 		System.out.println(httpResult.getData());
 	}
 }
