@@ -31,7 +31,7 @@ public class GlobalListener implements ServletContextListener, HttpSessionListen
 	/** 应用启动的时候，执行本方法 */
 	@Override
 	public void contextInitialized(ServletContextEvent event) {
-		
+		// 测试 git branchs by wyz
 		
 	}
 
