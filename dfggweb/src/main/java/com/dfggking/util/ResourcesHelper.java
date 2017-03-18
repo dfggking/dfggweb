@@ -10,13 +10,20 @@ import java.net.URLConnection;
 import java.nio.charset.Charset;
 import java.util.Properties;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 /**
  * 获取资源的帮助类，从ibatis上扒下来的，稍加改动。
- * 
- * @author LiuBo
+ * <p></p>
+ * <pre></pre>
+ * @author jinyf   
+ * @date 2017年3月1日 下午2:03:05 
+ * @since 1.0
  */
 public abstract class ResourcesHelper {
 
+	private final static Logger log = LogManager.getLogger(ResourcesHelper.class);
+	
 	/** 默认类加载器 */
 	private static ClassLoader defaultClassLoader;
 

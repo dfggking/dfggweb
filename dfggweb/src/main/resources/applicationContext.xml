@@ -36,7 +36,7 @@
     <mvc:annotation-driven />
     
     <!-- 设置对类的注解进行扫描，创建Bean及自动依赖注入 -->
-    <context:component-scan base-package="com.dfggking.common, com.dfggking.cache"/>
+    <context:component-scan base-package="com.dfggking.common, com.dfggking.cache, com.dfggking.support"/>
     <context:component-scan base-package="com.dfggking.sys.controller, com.dfggking.sys.service" />
     <context:component-scan base-package="com.dfggking.web.controller, com.dfggking.web.service" />
     
@@ -72,11 +72,10 @@
 	</bean>
 	
 	<!-- 初始化自定义配置 -->
-	<bean id="dictConfig" class="com.dfggking.cache.DictConfig" init-method="init"></bean>
+	<bean id="dictConfig" class="com.dfggking.cache.DictionaryHelper" init-method="init"></bean>
 	
 	<!-- 定义连接管理器 -->
 	<bean id="httpClientConnectionManager" class="org.apache.http.impl.conn.PoolingHttpClientConnectionManager" destroy-method="close">
-	   
 	   <!-- 最大连接数 -->
 	   <property name="maxTotal" value="${httpClient.maxTotal}" />
 	   <!-- 设置每个主机地址的并发数 -->

@@ -2,16 +2,14 @@ package com.dfggking.common.listener;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
-import javax.servlet.http.HttpSessionAttributeListener;
-import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 /**
- * 
- * <p>自定义全局监听器</p>
+ * 自定义全局监听器
+ * <p></p>
  * <pre></pre>
  * @author jinyf   
  * @date 2017年2月24日 下午2:47:35 

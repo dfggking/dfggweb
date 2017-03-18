@@ -9,7 +9,7 @@ package com.dfggking;
  */
 public interface Constants {
 	/** 获取国际化信息的包名 */
-	public static final String PACKAGENAME = "com.dfggking.LocalStrings";
+	public static final String PACKAGENAME = "com.dfggking";
 	
 	
 	

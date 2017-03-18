@@ -1,19 +1,13 @@
 package com.dfggking.cache;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
 import javax.annotation.Resource;
-
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
-
 import com.dfggking.sys.domain.DicDO;
 import com.dfggking.sys.service.IDictService;
-
-
 /**
  * 
  * <p>字典工具类</p>
@@ -23,27 +17,35 @@ import com.dfggking.sys.service.IDictService;
  * @since 1.0
  */
 @Component
-public class DictConfig {
-	private final static Logger log = LogManager.getLogger(DictConfig.class);
+public class DictionaryHelper {
+	private final static Logger log = LogManager.getLogger(DictionaryHelper.class);
 	
 	@Resource
 	private IDictService dictService;
-	
-	private static DictConfig dictConfig;
 	
 	/** 系统字典集合 */
 	private static List<DicDO> dictionaryList = new ArrayList<DicDO>();
 	
 	/** 工具类不允许外部 通过 new 来创建对象*/
-	private DictConfig() {}
+	private DictionaryHelper() {}
 	
-
-	public static DictConfig getInstance() {
-		return dictConfig;
+	private final static DictionaryHelper dictionaryHelper = new DictionaryHelper();
+	/**
+	 * 获取字典工具类的唯一实例
+	 * <p></p>
+	 * <pre></pre>
+	 * @return
+	 * @author jinyf   
+	 * @date 2017年3月1日 下午3:25:10 
+	 * @since
+	 */
+	public static DictionaryHelper getInstance() {
+		return dictionaryHelper;
 	}
 	
 	/**
-	 * <p>随系统启动,配置于applicationContext,初始化字典数据,取自字典表</p>
+	 * 随系统启动,配置于applicationContext,初始化字典数据,取自字典表
+	 * <p></p>
 	 * @return void
 	 * @author jinyf
 	 * @since 1.0
@@ -159,7 +161,7 @@ public class DictConfig {
 	 * @date 2017年2月24日 下午4:35:51 
 	 * @since
 	 */
-	public DicDO getSysDictByNames(String fname, String name) {
+	private DicDO getSysDictByNames(String fname, String name) {
 		if(!Objects.isNull(fname) && !Objects.isNull(name)){
 			for (DicDO vo : dictionaryList) {
 				if (vo.getDicName().equals(name.trim())) {
@@ -184,7 +186,7 @@ public class DictConfig {
 	 * @date 2017年2月24日 下午4:37:51 
 	 * @since
 	 */
-	public DicDO getSysDictById(String id) {
+	private DicDO getSysDictById(String id) {
 		for (DicDO vo : dictionaryList) {
 			if (Objects.equals(vo.getId(), id)) {
 				return vo;
@@ -222,7 +224,7 @@ public class DictConfig {
 	 * @date 2017年2月24日 下午4:39:23 
 	 * @since
 	 */
-	public String getSysDictNameById(String id){
+	private String getSysDictNameById(String id){
 		DicDO vo = getSysDictById(id);
 		if(vo != null){
 			return vo.getDicName();
@@ -441,7 +443,7 @@ public class DictConfig {
 	 * @date 2017年2月24日 下午4:49:31 
 	 * @since
 	 */
-	public List<DicDO> getDescendantDicByCode(String currentCode,int level,int [] levels,boolean containCur,List<DicDO> childs){
+	private List<DicDO> getDescendantDicByCode(String currentCode,int level,int [] levels,boolean containCur,List<DicDO> childs){
 		if(level==0){
 			return null;
 		}

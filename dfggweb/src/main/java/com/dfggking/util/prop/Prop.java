@@ -5,34 +5,34 @@ import java.math.BigInteger;
 import java.util.Properties;
 import java.util.Set;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import com.dfggking.Constants;
+import com.dfggking.util.ResourceManager;
 import com.dfggking.util.ResourcesHelper;
-import com.dfggking.util.StringManager;
 
 /**
- * 
- * <p>获取配置信息的帮助类</p>
+ * 获取配置信息的帮助类
+ * <p></p>
  * <pre></pre>
  * @author jinyf   
  * @date 2017年2月25日 上午10:45:49 
  * @since 1.0
  */
-public abstract class Prop {
+public class Prop {
 
 	/** 日志 */
-	private static final Log log = LogFactory.getLog(Prop.class);
+	private final static Logger log = LogManager.getLogger(Prop.class);
 
 	/** 国际化管理器 */
-	private static final StringManager sm = StringManager.getManager(Constants.PACKAGENAME);
-
+	private final static ResourceManager resourceMgr = ResourceManager.getManager(Constants.PACKAGENAME);
+	
 	/** 配置文件默认路径 */
-	protected static final String PATH_DEFAULT = "wechatConfig.properties";
+	protected final static String PATH_DEFAULT = "wechatConfig.properties";
 
 	/** 初始化锁 */
-	protected static final Object LOCK = new Object();
+	protected final static Object LOCK = new Object();
 
 	/** 存放键值对的Properties */
 	protected static volatile Properties properties;
@@ -59,7 +59,7 @@ public abstract class Prop {
 				}
 				initialized = true;
 			} catch (Exception e) {
-				log.warn(sm.getString("propInitFailed", new Object[] { path }), e);
+				log.warn(resourceMgr.getString("propInitFailed", new Object[] { path }), e);
 			}
 		}
 	}

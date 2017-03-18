@@ -5,17 +5,16 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
-
 /**
- * 对程序中出现的字符串统一管理，以键的方式获取相应的字符串信息，通过java.util.ResourceBundle来加载信息，
- * 我们需要在每个包下创建一个默认的LocalStrings.properties，如果有必要可以添加相应国别的配置文件比如：
- * 中文的文件名应该叫做LocalStrings_zh.properties。加载时通过包名牌需找配置文件，
- * 可以调用静态的getManager方法来获取相应包名的StringManager实例，此实例唯一。
- * 可以通过静态的setLocale、getLocale设置相应的国别，最好使用统一的国别。
- * 
- * @author LiuBo
+ * 对程序中出现的字符串统一管理，以键的方式获取相应的字符串信息
+ * <p>通过java.util.ResourceBundle来加载信息,我们需要在每个包下创建一个默认的LocalStrings.properties,如果有必要可以添加相应国别的配置文件比如：</p>
+ * <p>中文的文件名应该叫做LocalStrings_zh.properties。加载时通过包名牌需找配置文件</p>
+ * <p>可以调用静态的getManager方法来获取相应包名的ResourceManager实例，此实例唯一可以通过静态的setLocale、getLocale设置相应的国别，最好使用统一的国别</p>
+ * @author jinyf   
+ * @date 2017年3月1日 下午2:16:18 
+ * @since 1.0
  */
-public class StringManager {
+public class ResourceManager {
 
 	/**
 	 * 跟据Locale来缓存ResourceBundle。
@@ -28,12 +27,12 @@ public class StringManager {
 	private String baseName;
 
 	/**
-	 * 根据指定的包名构造StringManager实例。
+	 * 根据指定的包名构造ResourceManager实例。
 	 * 
 	 * @param baseName
 	 *            路径。
 	 */
-	public StringManager(String baseName) {
+	public ResourceManager(String baseName) {
 		this.baseName = baseName;
 	}
 
@@ -122,21 +121,21 @@ public class StringManager {
 	}
 
 	/**
-	 * StringManager的包名映射关系。
+	 * ResourceManager的包名映射关系。
 	 */
-	private static final HashMap<String, StringManager> managers = new HashMap<String, StringManager>();
+	private static final HashMap<String, ResourceManager> managers = new HashMap<String, ResourceManager>();
 
 	/**
-	 * 获取包名对应的StringManager实例，StringManager唯一且只初始化一次。
+	 * 获取包名对应的ResourceManager实例，ResourceManager唯一且只初始化一次。
 	 * 
 	 * @param baseName
 	 *            路径。
-	 * @return 返回StringManager实例。
+	 * @return 返回ResourceManager实例。
 	 */
-	public synchronized static StringManager getManager(String baseName) {
-		StringManager mgr = (StringManager) managers.get(baseName);
+	public synchronized static ResourceManager getManager(String baseName) {
+		ResourceManager mgr = (ResourceManager) managers.get(baseName);
 		if (mgr == null) {
-			mgr = new StringManager(baseName);
+			mgr = new ResourceManager(baseName);
 			managers.put(baseName, mgr);
 		}
 		return mgr;

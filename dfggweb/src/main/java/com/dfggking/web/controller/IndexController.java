@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.dfggking.common.base.controller.BaseController;
 
 @Controller
+@RequestMapping(value = "/front")
 public class IndexController extends BaseController {
 	
 	/**
@@ -26,6 +27,23 @@ public class IndexController extends BaseController {
 	 * 防止多logger同时使用时，Logger引用不小心被赋值，这是一个良好的编程习惯。
 	 */
 	private final static Logger log = LogManager.getLogger(IndexController.class);
+	
+	/**
+	 * 前端页面跳转
+	 * <p></p>
+	 * <pre></pre>
+	 * @param request
+	 * @param response
+	 * @author jinyf   
+	 * @date 2017年3月8日 下午3:09:22 
+	 * @since 1.0
+	 */
+	@RequestMapping(value = "main")
+	public String frontMain(HttpServletRequest request, HttpServletResponse response){
+		
+		log.debug("front/index");
+		return "/front/main";
+	}
 	
 	/**
 	 * 

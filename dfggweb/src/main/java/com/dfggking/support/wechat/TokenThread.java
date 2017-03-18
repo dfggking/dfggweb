@@ -14,15 +14,17 @@ import com.dfggking.util.prop.Prop;
  * 为减少AccessToken获取的频率，通过线程定时每隔30分钟重新获取一次AccessToken
  * 定时任务
  */
-public class TokenThread extends WeixinAPIHelper implements Runnable{
+public class TokenThread extends WechatHelper implements Runnable {
 	
 	private static Log log = LogFactory.getLog(TokenThread.class);
 
 	public void start(){
 		
-		//初始化微信配置
-		initWechatConfig();
+		/*初始化微信配置*/
+//		initWechatConfig();
 		getTokenUrl = Prop.getString("getTokenUrl");
+		createMenu = Prop.getString("createMenu");
+		
 		
 		if(access_token == null){
 			//启动定时获取AccessToken线程
@@ -30,7 +32,6 @@ public class TokenThread extends WeixinAPIHelper implements Runnable{
 			log.info("============定时获取AccessToken线程启动==============");
 		}
 	}
-	
 	
 	@Override
 	public void run(){
