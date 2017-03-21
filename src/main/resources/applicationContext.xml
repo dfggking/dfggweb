@@ -32,14 +32,6 @@
 		<property name="minEvictableIdleTimeMillis" value="1200000"/>
 	</bean>
 
-    <!-- 激活@Controller注解模式 -->
-    <mvc:annotation-driven />
-    
-    <!-- 设置对类的注解进行扫描，创建Bean及自动依赖注入 -->
-    <context:component-scan base-package="com.dfggking.common, com.dfggking.cache, com.dfggking.support"/>
-    <context:component-scan base-package="com.dfggking.sys.controller, com.dfggking.sys.service" />
-    <context:component-scan base-package="com.dfggking.web.controller, com.dfggking.web.service" />
-    
 	<!-- 配置 Hibernate SessionFactory -->
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
@@ -71,24 +63,35 @@
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	
+    <!-- 激活@Controller注解模式 -->
+    <mvc:annotation-driven />
+    
+    <!-- 设置对类的注解进行扫描，创建Bean及自动依赖注入 -->
+    <context:component-scan base-package="com.dfggking.common, com.dfggking.cache, com.dfggking.support"/>
+    <context:component-scan base-package="com.dfggking.sys.controller, com.dfggking.sys.service" />
+    <context:component-scan base-package="com.dfggking.web.controller, com.dfggking.web.service" />
+	
 	<!-- 初始化自定义配置 -->
 	<bean id="dictConfig" class="com.dfggking.cache.DictionaryHelper" init-method="init"></bean>
 	
-	<!-- 定义连接管理器 -->
+	
+    <!-- 定义连接管理器 -->
 	<bean id="httpClientConnectionManager" class="org.apache.http.impl.conn.PoolingHttpClientConnectionManager" destroy-method="close">
-	   <!-- 最大连接数 -->
+    <!-- 最大连接数 -->
 	   <property name="maxTotal" value="${httpClient.maxTotal}" />
-	   <!-- 设置每个主机地址的并发数 -->
+    <!-- 设置每个主机地址的并发数 -->
 	   <property name="defaultMaxPerRoute" value="${httpClient.defaultMaxPerRoute}" />
 	</bean>
-	<!-- httpclient对象构造器 -->
+    <!-- httpclient对象构造器 -->
 	<bean id="httpClientBuilder" class="org.apache.http.impl.client.HttpClientBuilder">
 	   <property name="connectionManager" ref="httpClientConnectionManager" />
 	</bean>
-	<!-- 定义httpclient对象 -->
+    <!-- 定义httpclient对象 -->
 	<bean id="httpClient" class="org.apache.http.impl.client.CloseableHttpClient" 
 	   factory-bean="httpClientBuilder" factory-method="build" scope="prototype">
     </bean>
+    <!-- 定义请求参数 -->
+    <bean id="requestConfig" class="org.apache.http.client.config.RequestConfig" factory-bean="requestConfigBuilder" factory-method="build" />
     <!-- 轻易清理无效连接线程 -->
     <bean class="com.dfggking.common.httpclient.IdleConnectionEvictor" destroy-method="shutdown">
         <constructor-arg index="0" ref="httpClientConnectionManager"></constructor-arg>
@@ -100,11 +103,9 @@
 	   <property name="connectionRequestTimeout" value="${httpClient.connectionRequestTimeout}" />
 	   <!-- 数据传输的最长时间 -->
 	   <property name="socketTimeout" value="${httpClient.socketTimeout}" />
-	   <!-- 提交请求前测试连接是否可用 -->
+	   <!--  提交请求前测试连接是否可用 -->
 	   <property name="staleConnectionCheckEnabled" value="${httpClient.staleConnectionCheckEnabled}" />
 	</bean>
-	<!-- 定义请求参数 -->
-	<bean id="requestConfig" class="org.apache.http.client.config.RequestConfig" factory-bean="requestConfigBuilder" factory-method="build" />
 	
 	<!-- 配置事务传播特性 -->
     <!-- <tx:advice id="transactionAdvice" transaction-manager="transactionManager">
