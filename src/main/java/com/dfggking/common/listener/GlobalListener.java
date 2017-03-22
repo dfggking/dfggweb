@@ -1,4 +1,4 @@
-package com.dfggking.common.listener;
+﻿package com.dfggking.common.listener;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -31,8 +31,11 @@ public class GlobalListener implements ServletContextListener, HttpSessionListen
 	/** 应用启动的时候，执行本方法 */
 	@Override
 	public void contextInitialized(ServletContextEvent event) {
+
 		
-		
+		/**
+		 *  jinyf 提交 代码
+		 */
 	}
 
 	/** 第一次建立Session执行 */
