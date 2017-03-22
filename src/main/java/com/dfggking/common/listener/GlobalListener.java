@@ -32,7 +32,6 @@ public class GlobalListener implements ServletContextListener, HttpSessionListen
 	@Override
 	public void contextInitialized(ServletContextEvent event) {
 
-		
 		/**
 		 *  jinyf 提交 代码
 		 */
