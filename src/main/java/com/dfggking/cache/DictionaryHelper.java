@@ -2,6 +2,8 @@ package com.dfggking.cache;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -50,6 +52,7 @@ public class DictionaryHelper {
 	 * @author jinyf
 	 * @since 1.0
 	 */
+	@PostConstruct /** bean装配后执行 */
 	public void init() {
 		try {
 			dictionaryList = dictService.listDict();
