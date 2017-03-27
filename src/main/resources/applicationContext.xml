@@ -76,9 +76,9 @@
 	
     <!-- 定义连接管理器 -->
 	<bean id="httpClientConnectionManager" class="org.apache.http.impl.conn.PoolingHttpClientConnectionManager" destroy-method="close">
-    <!-- 最大连接数 -->
+        <!-- 最大连接数 -->
 	   <property name="maxTotal" value="${httpClient.maxTotal}" />
-    <!-- 设置每个主机地址的并发数 -->
+        <!-- 设置每个主机地址的并发数 -->
 	   <property name="defaultMaxPerRoute" value="${httpClient.defaultMaxPerRoute}" />
 	</bean>
     <!-- httpclient对象构造器 -->
