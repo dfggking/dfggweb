@@ -12,7 +12,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.dfggking.common.httpclient.HttpClientHelper;
-import com.dfggking.support.wechat.WechatHelper;
 
 @RunWith(SpringJUnit4ClassRunner.class)//基于Junit4的Spring测试框架  
 @ContextConfiguration(locations={"classpath:applicationContext.xml", "classpath:dispatcherServlet.xml"})//启动Spring容器
@@ -21,8 +20,8 @@ public class TestHibernate extends AbstractJUnit4SpringContextTests {
 //	@Autowired
 //	public IIndexService indexService;
 	
-//	@Autowired
-//	HttpClientHelper httpClientHelper;
+	@Autowired
+	HttpClientHelper httpClientHelper;
 //	@Autowired
 //	WechatHelper wechatHelper;
 	
@@ -52,9 +51,9 @@ public class TestHibernate extends AbstractJUnit4SpringContextTests {
 	 */
 	@Test
 	public void testHttpClient() throws IOException {
-//		String rs = httpClientHelper.doGet("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx5707200a7ca0596c&secret=1be8a07a3687a268fa45ba7de16febdc");
-//		JSONObject jsonObject = (JSONObject) JSON.parse(rs);
-//		System.out.println(jsonObject.get("access_token"));
+		String rs = httpClientHelper.doGet("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx5707200a7ca0596c&secret=1be8a07a3687a268fa45ba7de16febdc");
+		JSONObject jsonObject = (JSONObject) JSON.parse(rs);
+		System.out.println(jsonObject.get("access_token"));
 		
 	}
 }

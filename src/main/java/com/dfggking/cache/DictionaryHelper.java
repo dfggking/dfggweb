@@ -28,7 +28,7 @@ public class DictionaryHelper {
 	/** 系统字典集合 */
 	private static List<DicDO> dictionaryList = new ArrayList<DicDO>();
 	
-	/** 工具类不允许外部 通过 new 来创建对象*/
+	/** 工具类不允许外部 通过 new 来创建对象*/ /** 单例模式  */
 	private DictionaryHelper() {}
 	
 	private final static DictionaryHelper dictionaryHelper = new DictionaryHelper();

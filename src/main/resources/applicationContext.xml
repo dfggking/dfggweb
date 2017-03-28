@@ -59,7 +59,7 @@
 	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
 	
 	<!-- DAO配置 -->
-	<bean id="com.dfggking.web.common.dao.HibernateDao" class="com.dfggking.common.dao.HibernateDao" scope="singleton">
+	<bean id="hibernateDao" class="com.dfggking.common.dao.HibernateDao" scope="singleton">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	

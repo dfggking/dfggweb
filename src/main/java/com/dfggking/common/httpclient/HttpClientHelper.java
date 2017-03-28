@@ -38,7 +38,6 @@ import com.dfggking.common.httpclient.entity.HttpResult;
  */
 @Component
 public class HttpClientHelper {
-	
 	private final static Logger log = LogManager.getLogger(HttpClientHelper.class);
 	
 	@Autowired
