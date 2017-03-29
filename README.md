@@ -4,7 +4,7 @@ dfgg_web这个项目是我业余时间搭建的，用于学习。项目采用Spr
 如有疑问：请联系我  微信、QQ 同号：835317619。
 
 其中在src/main/resources里面，我没有上传的jdbc.properties文件。
-jdbc.properties内容：
-jdbc.username=***
-jdbc.password=***
-jdbc.url=jdbc:mysql://***:3306/***?characterEncoding=utf8&useSSL=false
+#jdbc.properties内容：
+#jdbc.username=***
+#jdbc.password=***
+#jdbc.url=jdbc:mysql://***:3306/***?characterEncoding=utf8&useSSL=false
