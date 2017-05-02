@@ -75,7 +75,7 @@
 	<context:component-scan base-package="com.dfggking.web.controller, com.dfggking.web.service" />
 
 	<!-- 初始化自定义配置 -->
-
+	
 
 	<!-- 定义连接管理器 -->
 	<bean id="httpClientConnectionManager" class="org.apache.http.impl.conn.PoolingHttpClientConnectionManager" destroy-method="close">
