@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<%@ include file="../common/wechatconfig.jsp"%>
+<%@ include file="../common/phoneConfig.jsp"%>
 <!-- 引入样式 -->
 <link href="//cdn.bootcss.com/weui/1.1.1/style/weui.min.css" rel="stylesheet">
 <link href="https://cdn.bootcss.com/jquery-weui/1.0.1/css/jquery-weui.min.css" rel="stylesheet">

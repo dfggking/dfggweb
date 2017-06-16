@@ -8,7 +8,7 @@
 <!-- user-scalable=no 表示不允许移动端缩放  -->
 <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-<title>Dfgg</title>
+<title>WEB技能圈儿</title>
 <script>
 var ctx = '${ctx}';
 </script>
