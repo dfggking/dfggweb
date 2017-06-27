@@ -56,7 +56,6 @@ public class DicDO implements java.io.Serializable {
 	}
 
 	@Id
-
 	@Column(name = "id", unique = true, nullable = false, length = 20)
 	public String getId() {
 		return this.id;

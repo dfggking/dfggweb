@@ -22,7 +22,7 @@ public class IndexController extends BaseController {
 	 * 使用static修饰的属性归这个类使用的，无论这个类实例化多少个，大家用的都是同一个static属性
 	 * log4j记录的是当前类的日志，不是每个实例的日志
 	 * 所以只要有一个记录就行了
-	 *  因为同一个logger name对应唯一的Logger实例，而Logger.getLogger方法在从logger容器中取logger的过程中，有一个步骤被加了同步锁， 这就造成了如果在多线程的竞争环境中频繁地调用getLogger操作，有可能会造成堵塞。而且这种操作是没有价值的，所以使用static来保证需要需 用Logger的类所有的对象共享一个Logger的引用，并且只获取一次就可以了。
+	 * 因为同一个logger name对应唯一的Logger实例，而Logger.getLogger方法在从logger容器中取logger的过程中，有一个步骤被加了同步锁， 这就造成了如果在多线程的竞争环境中频繁地调用getLogger操作，有可能会造成堵塞。而且这种操作是没有价值的，所以使用static来保证需要需 用Logger的类所有的对象共享一个Logger的引用，并且只获取一次就可以了。
 	 * 为什么是final？
 	 * 防止多logger同时使用时，Logger引用不小心被赋值，这是一个良好的编程习惯。
 	 */

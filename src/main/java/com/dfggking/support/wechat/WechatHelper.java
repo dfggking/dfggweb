@@ -1,12 +1,6 @@
 package com.dfggking.support.wechat;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
 import java.text.MessageFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -15,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.dfggking.cache.DictionaryHelper;
 import com.dfggking.common.httpclient.HttpClientHelper;
 
 /**
@@ -27,33 +22,32 @@ import com.dfggking.common.httpclient.HttpClientHelper;
  */
 @Component
 public class WechatHelper {
-	
 	private final static Logger log = LogManager.getLogger(WechatHelper.class);
 	
 	@Autowired
 	private HttpClientHelper httpClientHelper;
-	public static String APPID; // 应用ID
-	public static String SECRET; // 秘钥
-	protected static String access_token;
+	protected String APPID; // 应用ID
+	protected String SECRET; // 秘钥
+	protected String Token; 
+	protected String access_token; 
 	
 	/**
 	 * 获取token接口
 	 */
 	public static String getTokenUrl;
-	/**
-	 * 创建菜单
-	 */
-	public static String createMenu;
+	
 	/**
 	 * 初始化微信配置
 	 */
-	public static void init(){
+	public void initWechatConfig(){
+		DictionaryHelper dictionaryHelper = DictionaryHelper.getInstance();
+		APPID = dictionaryHelper.getSysDictValueByCode("APPID");
+		SECRET = dictionaryHelper.getSysDictValueByCode("appsecret");
+		Token = dictionaryHelper.getSysDictValueByCode("Token");
 		
 		
-		APPID = "";
-		SECRET = "";
 		
-		
+		log.info("getAccessToken start.{APPID=" + APPID + ",secret:" + SECRET + "}");
 	}
 	
 	/**
@@ -65,7 +59,7 @@ public class WechatHelper {
 	 * @return
 	 * @author jinyf   
 	 * @date 2017年2月28日 上午11:07:31 
-	 * @since
+	 * @since 1.0
 	 */
 	protected String getAccessToken(String corpId, String secret) {
 		String accessToken = null;
@@ -79,10 +73,9 @@ public class WechatHelper {
 			e.printStackTrace();
 			log.error("get access toekn exception", e);
 		}
-		
 		return accessToken;
 	}
-
+	
 	/**
 	 * 创建公众号自定义菜单
 	 * <p></p>
@@ -93,24 +86,14 @@ public class WechatHelper {
 	 * @since
 	 */
 	protected boolean createMenu() {
-		Map<String, String> mapData = new HashMap<String, String>();
-		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
-		Map<String, Object> mapChild = new HashMap<String, Object>();
-		mapChild.put("type", "click");
-		mapChild.put("name", "今日头条");
-		mapChild.put("key", "http://www.baidu.com");
-		list.add(mapChild);
-		mapData.put("button", list.toString());
-		String url = MessageFormat.format(createMenu, access_token);
-		try {
-			String rs = httpClientHelper.doGet(url, mapData);
-		} catch (URISyntaxException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		/**
+		 * 通过官方自定义生成
+		 */
 		return true;
 	}
+	
+	
+	
 	
 }
 

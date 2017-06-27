@@ -2,8 +2,8 @@ package com.dfggking.support.wechat;
 
 import java.util.Objects;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import com.dfggking.util.prop.Prop;
 
@@ -15,16 +15,13 @@ import com.dfggking.util.prop.Prop;
  * 定时任务
  */
 public class TokenThread extends WechatHelper implements Runnable {
-	
-	private static Log log = LogFactory.getLog(TokenThread.class);
+	private final static Logger log = LogManager.getLogger(TokenThread.class);
 
 	public void start(){
 		
 		/*初始化微信配置*/
-//		initWechatConfig();
+		initWechatConfig();
 		getTokenUrl = Prop.getString("getTokenUrl");
-		createMenu = Prop.getString("createMenu");
-		
 		
 		if(access_token == null){
 			//启动定时获取AccessToken线程
@@ -49,7 +46,6 @@ public class TokenThread extends WechatHelper implements Runnable {
 					 * 开始计时30分钟重新获取一次AccessToken
 					 */
 					if(access_token != null){
-//						String timer = DictConfig.getInstance().getSysDictValueByCode("getAccessTokenTimer");
 						String timer = "60"; 
 						int accessTokenTimer = Objects.isNull(timer) ? 60 : Integer.parseInt(timer);
 						//配置的定时时长小于1分钟或者大于119分钟则自动设置为60分钟
