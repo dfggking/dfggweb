@@ -1,10 +1,13 @@
 /**
- * require config
- * @author jinyf
+ * @Description 
+ * @author dfggking@hotmail.com
+ * @date 2017-6-27
+ * @version 1.0
  */
 require.config({
-	urlArgs : 'v=1.0.0',
-	baseUrl : ctx+'/script/',
+//	urlArgs : 'v=1.0.0',
+	urlArgs : 'v=' + new Date().getTime(),
+	baseUrl : ctx+'/js/',
 	paths : { // paths
 		
 		// 框架类
@@ -21,13 +24,11 @@ require.config({
 		'bootstrap' : 'https://cdn.bootcss.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min',
 		
 		// 动画类
-		'velocity' : 'https://cdn.bootcss.com/velocity/1.4.3/velocity.min',
-		
+		'velocity' : 'https://cdn.bootcss.com/velocity/1.4.3/velocity.min'
 	},
 	shim : { // shim
 		'nprogress' : 'jquery',
-		'velocity' : 'jquery',
-		
+		'velocity' : 'jquery'
 	}
 });
 
