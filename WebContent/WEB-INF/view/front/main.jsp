@@ -26,6 +26,6 @@
   <footer>
     
   </footer><!-- footer end -->
-  <script data-main="${ctx}/script/module/front/front.module.js" src="https://cdn.bootcss.com/require.js/2.3.3/require.min.js"></script>
+  <script data-main="${ctx}/js/module/front/front.module.js" src="https://cdn.bootcss.com/require.js/2.3.3/require.min.js"></script>
 </body>
 </html>
