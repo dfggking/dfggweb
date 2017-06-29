@@ -10,6 +10,9 @@
 						http://www.springframework.org/schema/context
 						http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 	
+	<!-- 试图名解析 -->
+	
+	
 	<!--　定义视图及路径　--><!-- ViewResolver -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="order" value="99"/>
@@ -18,5 +21,6 @@
 		<property name="suffix" value=".jsp"/>
 	</bean>
 	
-	<mvc:view-controller path="/" view-name="forward:/login/index" />
+	<mvc:default-servlet-handler />
+	<mvc:view-controller path="/" view-name="forward:/login" />
 </beans>

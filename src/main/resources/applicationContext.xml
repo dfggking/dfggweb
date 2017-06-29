@@ -73,7 +73,7 @@
 	<context:component-scan base-package="com.dfggking.common, com.dfggking.cache, com.dfggking.support" />
 	<context:component-scan base-package="com.dfggking.sys.controller, com.dfggking.sys.service" />
 	<context:component-scan base-package="com.dfggking.web.controller, com.dfggking.web.service" />
-
+    <context:component-scan base-package="com.dfggking.webapp.controller, com.dfggking.webapp.service" />
 	<!-- 初始化自定义配置 -->
 	
 

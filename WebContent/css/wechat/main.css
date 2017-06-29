@@ -1,6 +1,214 @@
-.weui-header {
-	color: #3cc51f;
-	text-align: center;
-	padding: 35px 0;
-	
+@charset "utf-8";
+/**
+ * Hollyreset.css (基于Normalize.css定制的CSS reset，删除了用不到的标签样式，增加项目中常用的标签样式比如：iPhone滚动条)
+ * Author: dfggking@hotmail.com
+ * Github: https://github.com/dfggking
+ */
+html {
+  line-height: 1.15; /* 1 */
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
 }
+body {
+  margin: 0;
+}
+article,
+aside,
+footer,
+header,
+nav,
+section {
+  display: block;
+}
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+a {
+  background-color: transparent; /* 1 */
+  -webkit-text-decoration-skip: objects; /* 2 */
+}
+b,
+strong {
+  font-weight: inherit;
+}
+b,
+strong {
+  font-weight: bolder;
+}
+small {
+  font-size: 80%;
+}
+audio,
+video {
+  display: inline-block;
+}
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+img {
+  border-style: none;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+button,
+input,
+select,
+textarea {
+  font-family: sans-serif; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+button,
+input { /* 1 */
+  overflow: visible;
+}
+button,
+select { /* 1 */
+  text-transform: none;
+}
+button,
+html [type="button"], /* 1 */
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+}
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+legend {
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
+}
+progress {
+  display: inline-block; /* 1 */
+  vertical-align: baseline; /* 2 */
+}
+textarea {
+  overflow: auto;
+}
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+canvas {
+  display: inline-block;
+}
+template {
+  display: none;
+}
+[hidden], [v-cloak] {
+  display: none;
+}
+.pa {
+  position: absolute;
+}
+.pr {
+  position: relative;
+}
+.pf {
+  position: fixed;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.clearfix{overflow:hidden;_zoom:1;}
+.iphone-scroll {
+  -webkit-overflow-scrolling:touch;
+}
+/** 业务样式 */
+.app__header {
+  text-align: center;
+  padding: 1em 0;
+}
+.header-title {
+	margin: 0;
+	line-height: normal;
+  color: #333;
+}
+.header-desc {
+	font-size: .8em;
+	color: #999;
+}
+.login_type-select {
+	margin: 0 .67em 1em;
+}
+.login_type-select .weui-btn {
+	position: relative;
+	border-radius: 50px;
+	color: #fafafa;
+}
+.login_type-select .wechat {
+	background: #62D57E;
+}
+.login_type-select .qq {
+  background: #4FAFD2;
+}
+.login_type-select .sina {
+  background: #EF8E89;
+}
+.login_type-select .weui-btn .icon {
+	position: absolute;
+	top: 50%;
+	left: 20%;
+	width: 25px;
+	height: 25px;
+	margin-top: -12.5px;
+}
+.login_type-select .wechat .icon {
+	background: url(../../img/common/wechat.png);
+  background-size: cover;
+}
+.login_type-select .qq .icon {
+  background: url(../../img/common/QQ.png);
+  background-size: cover;
+}
+.login_type-select .sina .icon {
+  background: url(../../img/common/sina.png);
+  background-size: cover;
+}
+
+
+
+
+
+
+
+

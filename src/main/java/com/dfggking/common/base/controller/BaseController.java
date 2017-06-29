@@ -15,23 +15,14 @@ import org.springframework.stereotype.Controller;
 public abstract class BaseController {
 	private final static Logger log = LogManager.getLogger(BaseController.class);
 	
-	/** 返回数据的key值 */
-	final static String ROOT = "ROOT";
-
-	/** 返回处理结果的key值 */
-	protected final static String RESULT = "RESULT";
-
-	/** 表示成功的处理结果 */
-	protected final static String SUCCESS = "SUCCESS";
-
-	/** 返回提示消息的key值 */
-	protected final static String INFO = "INFO";
-
-	/** 返回警告消息的key值 */
-	protected final static String WARN = "WARN";
+	/** 返回结果状态值， 0表示失败， 1表示成功 */
+	protected final static String STATUS = "status";
 	
-	/** 表示失败的处理结果 */
-	protected final static String FAILED = "FAILED";
+	/** 返回状态说明， status为0时，info返回错误原因，否则返回OK */
+    protected final static String INFO = "info";
+   
+    /** 状态码， 1000表示正确， 详情参阅info状态表 */
+    protected final static String INFO_CODE = "infocode";
 
 	/** 返回 User Cookie key值 */
 	protected final String COOKIE_USERID = "COOKIE_USERID";
