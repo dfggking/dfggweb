@@ -22,5 +22,5 @@
 	</bean>
 	
 	<mvc:default-servlet-handler />
-	<mvc:view-controller path="/" view-name="forward:/login" />
+	<mvc:view-controller path="/" view-name="forward:/web/login/main" />
 </beans>

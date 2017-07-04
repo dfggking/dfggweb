@@ -16,8 +16,8 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.1.1</version>
 				<configuration>
-				    <encoding>${project.build.sourceEncoding}</encoding> 
-                    <warSourceDirectory>WebContent</warSourceDirectory>  
+				  <encoding>${project.build.sourceEncoding}</encoding> 
+          <warSourceDirectory>WebContent</warSourceDirectory>  
 					<webXml>WebContent\WEB-INF\web.xml</webXml>
 				</configuration>
 			</plugin>
@@ -79,10 +79,6 @@
 			<artifactId>spring-webmvc</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>tomcat</groupId>
 			<artifactId>jsp-api</artifactId>
 			<scope>provided</scope>
@@ -127,6 +123,10 @@
 			<groupId>com.corundumstudio.socketio</groupId>
 			<artifactId>netty-socketio</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
@@ -161,11 +161,6 @@
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-webmvc</artifactId>
 				<version>4.3.6.RELEASE</version>
-			</dependency>
-			<dependency>
-				<groupId>mysql</groupId>
-				<artifactId>mysql-connector-java</artifactId>
-				<version>6.0.5</version>
 			</dependency>
 			<dependency>
 				<groupId>log4j</groupId>
@@ -236,6 +231,11 @@
 				<groupId>com.corundumstudio.socketio</groupId>
 				<artifactId>netty-socketio</artifactId>
 				<version>1.7.12</version>
+			</dependency>
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>6.0.5</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

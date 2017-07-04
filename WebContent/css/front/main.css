@@ -26,9 +26,110 @@ body {font-size: 1.4rem;}
   color: #939495;
   font-size: 1.25rem;
 }
-
-
 /* 防止页面加载时出现变量名*/
 [v-cloak] {
   display: none !important;
 }
+.top-line {
+    height: 30px;
+    background: #FAFAFA;
+}
+.top-title {
+    height: 50px;
+    background: #333;
+    text-align: center;
+}
+.top-title .top-title_span {
+    line-height: 50px;
+    font-size: 20px;
+    color: #FAFAFA;
+}
+.header {
+    height: 100px;
+    background: #FAFAFA;
+    overflow: hidden;
+}
+.header .header-login, .header .header-nav, .header .header-search {
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    height: inherit;
+}
+.header .header-login .user-icon {
+    width: 30px;
+    height: 30px;
+    background: url(../../img/user.png);
+    background-size: cover;
+}
+.header .header-login .user-name {
+    padding-left: 4px;
+    font-size: 22px;
+    color: #333;
+}
+.header .header-nav {
+    justify-content: space-between;
+    list-style: none;
+}
+.header .header-nav>li {
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: inherit;
+}
+.header .header-nav>li a {
+    font-size: 22px;
+    color: #333;
+    text-decoration: none;
+}
+.header .header-nav .active a {
+    font-size: 38px;
+}
+.header .header-search {
+    justify-content:  flex-start;
+}
+.header .header-search .search-icon {
+    width: 24px;
+    height: 24px;
+    background: url(../../img/search.png);
+    background-size: cover;
+    margin-right: 5px;
+}
+.header .header-search .input {
+    height: 26px;
+    border: none;
+    border-bottom: 1px solid #333;
+    background: #FAFAFA;
+}
+.header .header-search .input:focus {
+    outline: 0;
+    -webkit-box-shadow: inset 0 0 0 rgba(0,0,0,.075), 0 0 0 #333;
+    box-shadow: inset 0 0 0 rgba(0,0,0,.075), 0 0 0 #333;
+}
+.header .header-search .submit {
+    margin-left: 3px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.unslider-box {
+    position: relative;
+    width: 100%;
+    height: 700px;
+    padding: 0;
+}
+#J_unslider .unslider-arrow04 {
+    position: absolute;
+    top: 330px;
+}
+#J_unslider .prev {
+    left: 50px;
+}
+#J_unslider .next {
+    right: 50px;
+}
+.unslider-arrow {
+    display: none;
+}
+

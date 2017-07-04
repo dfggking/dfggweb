@@ -1,11 +1,5 @@
 package com.dfggking.web.controller;
 
-import java.io.IOException;
-import java.io.OutputStream;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -14,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.dfggking.common.base.controller.BaseController;
 
 @Controller
-@RequestMapping(value = "/front")
+@RequestMapping(value = "/web/index")
 public class IndexController extends BaseController {
 	
 	/**
@@ -27,24 +21,6 @@ public class IndexController extends BaseController {
 	 * 防止多logger同时使用时，Logger引用不小心被赋值，这是一个良好的编程习惯。
 	 */
 	private final static Logger log = LogManager.getLogger(IndexController.class);
-	
-	/**
-	 * 前端页面跳转
-	 * <p></p>
-	 * <pre></pre>
-	 * @param request
-	 * @param response
-	 * @author jinyf   
-	 * @date 2017年3月8日 下午3:09:22 
-	 * @since 1.0
-	 */
-	@RequestMapping(value = "main")
-	public String frontMain(HttpServletRequest request, HttpServletResponse response){
-		
-		log.debug("front/index");
-		return "/front/main";
-	}
-	
 	/**
 	 * 
 	 * <p>微信公众号接口握手验证</p>
@@ -58,17 +34,17 @@ public class IndexController extends BaseController {
 	 * @date 2017年2月20日 上午9:31:13 
 	 * @since 1.0
 	 */
-	@RequestMapping(value = "wechat/hello")
-	public void hello(HttpServletRequest request, HttpServletResponse response, String signature, String timestamp, String nonce, String echostr) throws IOException {
-		log.info("signature: " + signature);
-		log.info("timestamp: " + timestamp);
-		log.info("nonce: " + nonce);
-		log.info("echostr: " + echostr);
-		log.info("return new");
-		OutputStream os = response.getOutputStream();
-		os.write(echostr.getBytes("UTF-8"));
-		os.flush();
-		os.close();
-	}
-	
+//	@RequestMapping(value = "/wechat/hello")
+//	public void hello(HttpServletRequest request, HttpServletResponse response, String signature, String timestamp, String nonce, String echostr) throws IOException {
+//		log.info("signature: " + signature);
+//		log.info("timestamp: " + timestamp);
+//		log.info("nonce: " + nonce);
+//		log.info("echostr: " + echostr);
+//		log.info("return new");
+//		OutputStream os = response.getOutputStream();
+//		os.write(echostr.getBytes("UTF-8"));
+//		os.flush();
+//		os.close();
+//	}
+//	
 }
