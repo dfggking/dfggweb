@@ -13,7 +13,8 @@ jdbc.url=jdbc:mysql://***:3306/***?characterEncoding=utf8&useSSL=false
 
 ### 项目亮点 是我个人总结的项目经验，追求极致的编程规范是我始终的目标
 
-### 我的个人网站：www.jinyingfei.com    （一直开发中，可访问）
-
+### 我的个人网站：WEB技能圈儿 www.jinyingfei.com    （一直开发中，可访问）
+### 我的头条号：WEB技能圈儿
+### 我的微信公众号：WEB技能圈儿
 
 
