@@ -41,12 +41,13 @@ body {font-size: 1.4rem;}
 }
 .top-title .top-title_span {
     line-height: 50px;
-    font-size: 20px;
+    font-size: 16px;
     color: #FAFAFA;
 }
 .header {
     height: 100px;
     background: #FAFAFA;
+    padding: 0;
     overflow: hidden;
 }
 .header .header-login, .header .header-nav, .header .header-search {

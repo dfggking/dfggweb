@@ -10,9 +10,6 @@
 <!-- user-scalable=no 表示不允许移动端缩放  -->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 <link rel="shortcut icon" href="${ctx}/favicon.ico"/>
-<script>
-var ctx = '${ctx}';
-</script>
 <!-- 样式优先加载  -->
 <!-- bootstrap已经依赖 <link href="https://cdn.bootcss.com/normalize/7.0.0/normalize.min.css" rel="stylesheet"> -->
 <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
@@ -25,4 +22,6 @@ var ctx = '${ctx}';
 <script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
 <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-
+<script>
+var ctx = '${ctx}';
+</script>
