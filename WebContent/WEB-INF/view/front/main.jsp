@@ -113,22 +113,22 @@
     <h2>最新作品</h2>
     <p>用心做每一个作品，不断完善</p>
     <div class="latest-display col-md-offset-1 col-md-10">
-      <div class="display-panel">
+      <div class="display-panel col-xs-12">
         <img class="work-img" src="${ctx}/img/front/work-pic1.jpg" />
       </div>
-      <div class="display-panel">
+      <div class="display-panel col-xs-12">
         <img class="work-img" src="${ctx}/img/front/work-pic1.jpg" />
       </div>
-      <div class="display-panel">
+      <div class="display-panel col-xs-12">
         <img class="work-img" src="${ctx}/img/front/work-pic1.jpg" />
       </div>
-      <div class="display-panel">
+      <div class="display-panel col-xs-12">
         <img class="work-img" src="${ctx}/img/front/work-pic1.jpg" />
       </div>
-      <div class="display-panel">
+      <div class="display-panel col-xs-12">
         <img class="work-img" src="${ctx}/img/front/work-pic1.jpg" />
       </div>
-      <div class="display-panel">
+      <div class="display-panel col-xs-12">
         <img class="work-img" src="${ctx}/img/front/work-pic1.jpg" />
       </div>
     </div>

@@ -279,6 +279,12 @@
     .works .public-media {
         justify-content: space-between;
     }
+    .display-panel {
+        width: 100%;
+    }
+    .latest-display .display-panel {
+        width: 100%;
+    }
 }
 /** 此处的手机和平板应该合并，但是介于这是第一次整理所以保留冗余代码 */
 /** 平板 */
@@ -335,6 +341,12 @@
     }
     .works .public-media {
         justify-content: space-between;
+    }
+    .display-panel {
+        width: 100%;
+    }
+    .latest-display .display-panel {
+        width: 100%;
     }
 }
 /** 小桌面显示器 */
