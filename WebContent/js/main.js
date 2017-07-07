@@ -5,7 +5,5 @@
  * @version 1.0
  */
 $(function(){
-	console.info('hello world dfggweb');
-	
-	
+    console.info('hello world dfggweb');
 });

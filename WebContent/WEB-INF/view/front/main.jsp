@@ -138,33 +138,16 @@
   <footer>
     
   </footer>
-  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdn.bootcss.com/nprogress/0.2.0/nprogress.js"></script>
-  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://cdn.bootcss.com/unslider/2.0.3/js/unslider-min.js"></script>
-  <script>
-      NProgress.inc();
-      $(function(){
-          var timeout = window.setTimeout(function(){
-              NProgress.done();
-              window.clearTimeout(timeout);       
-          }, 2000);
-          var unslider04 = $('#J_unslider').unslider({
-              dots: true
-          }),data04 = unslider04.data('unslider');
-          $('.unslider-arrow04').click(function() {
-              var fn = this.className.split(' ')[1];
-              data04[fn]();
-          });
-      });
-  </script>
-  <%-- <script data-main="${ctx}/js/module/front/front.module.js" src="https://cdn.bootcss.com/require.js/2.3.3/require.min.js"></script> --%>
+  <script data-main="${ctx}/js/module/front/front.module" src="https://cdn.bootcss.com/require.js/2.3.3/require.min.js" defer async="true"></script>
+  
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
   <script>
-      var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-      s.parentNode.insertBefore(g,s)}(document,'script'));
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-102161569-1', 'auto');
+    ga('send', 'pageview');
   </script>
 </body>
 </html>
