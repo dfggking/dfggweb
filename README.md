@@ -12,9 +12,14 @@ jdbc.url=jdbc:mysql://***:3306/***?characterEncoding=utf8&useSSL=false
 
 
 ### 项目亮点 是我个人总结的项目经验，追求极致的编程规范是我始终的目标
-
 ### 我的个人网站：WEB技能圈儿 www.jinyingfei.com    （一直开发中，可访问）
 ### 我的头条号：WEB技能圈儿
 ### 我的微信公众号：WEB技能圈儿
+### 百家号：WEB技能圈儿
+### 网易新闻：WEB技能圈儿
+### 新浪博客：WEB技能圈儿
 
 
+## 请注意
+## master目前正在重构使用 spring HibernateDaoSupport JDBCTemplate
+## changeDaoBefore分支为没有改动前
