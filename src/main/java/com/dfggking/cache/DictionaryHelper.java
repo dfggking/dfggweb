@@ -52,7 +52,7 @@ public class DictionaryHelper {
 	 */
 	public void init() {
 		try {
-			dictionaryList = dictService.listDict();
+//			dictionaryList = dictService.listDict();
 		} catch (Exception e) {
 			log.error(e);
 		}

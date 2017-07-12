@@ -10,7 +10,7 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.dfggking.common.base.controller.BaseController;
+import com.dfggking.common.base.controller.impl.BaseController;
 import com.dfggking.web.controller.IndexController;
 
 /**

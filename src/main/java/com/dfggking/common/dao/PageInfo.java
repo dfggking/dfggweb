@@ -32,6 +32,7 @@ public class PageInfo {
 	 */
 	private int page;
 
+
 	/**
 	 * 每页行数。
 	 */

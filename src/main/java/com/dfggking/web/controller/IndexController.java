@@ -3,7 +3,8 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.dfggking.common.base.controller.BaseController;
+
+import com.dfggking.common.base.controller.impl.BaseController;
 @Controller
 @RequestMapping(value = "/web/index")
 public class IndexController extends BaseController {
