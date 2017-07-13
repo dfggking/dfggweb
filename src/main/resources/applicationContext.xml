@@ -32,8 +32,7 @@
         <property name="dataSource" ref="dataSource" />
         <property name="packagesToScan">
             <list>
-                <value>com.dfggking.web.domain</value>
-                <value>com.dfggking.sys.domain</value>
+                <value>com.dfggking.entity</value>
             </list>
         </property>
         <!-- hibernate的相关属性配置 -->
