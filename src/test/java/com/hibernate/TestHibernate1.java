@@ -3,12 +3,8 @@ package com.hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.boot.cfgxml.spi.CfgXmlAccessService;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
-
-import com.dfggking.sys.domain.DicDO;
+import com.dfggking.entity.Dic;
 
 public class TestHibernate1 {
 	
@@ -36,7 +32,7 @@ public class TestHibernate1 {
 		SESSION_FACTORY = new Configuration().configure().buildSessionFactory();
 		Transaction tx = currentSession().beginTransaction();
 		
-		DicDO dic = new DicDO();
+		Dic dic = new Dic();
 		dic.setId("1234");
 		dic.setDicName("addByHibernate");
 		dic.setDicValue("addByHibernate");

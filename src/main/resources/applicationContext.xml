@@ -52,10 +52,6 @@
     </bean>
     <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />
     
-    <bean id="baseService" class="com.dfggking.common.base.service.BaseService">
-        <property name="hibernateTemplate" ref="hibernateTemplate" />
-    </bean>
-    
     <bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
@@ -72,7 +68,6 @@
     <context:component-scan base-package="com.dfggking.web.controller, com.dfggking.web.service" />
     <context:component-scan base-package="com.dfggking.webapp.controller, com.dfggking.webapp.service" />
     <!-- 初始化自定义配置 -->
-    
     
     
     <!-- 定义连接管理器 -->

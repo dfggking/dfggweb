@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.dfggking.common.base.service.BaseService;
-import com.dfggking.sys.domain.DicDO;
+import com.dfggking.entity.Dic;
 import com.dfggking.sys.service.IDictService;
 
 /**
@@ -29,10 +29,10 @@ public class DictServiceImpl extends BaseService implements IDictService {
      * 
      */
     @Override
-    public List<DicDO> listDict() {
-        String hql = "from DicDO";
-//      List<DicDO> list = (List<DicDO>) hdao.getHibernateTemplate().find(hql, null);
-        List<DicDO> list = new ArrayList<DicDO>();
+    public List<Dic> listDict() {
+        String hql = "from Dic";
+//      List<Dic> list = (List<Dic>) hdao.getHibernateTemplate().find(hql, null);
+        List<Dic> list = new ArrayList<Dic>();
         return list;
     }
 }

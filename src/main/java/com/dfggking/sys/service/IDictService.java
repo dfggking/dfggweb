@@ -1,9 +1,8 @@
 package com.dfggking.sys.service;
 
 import java.util.List;
+import com.dfggking.entity.Dic;
 
-import com.dfggking.sys.domain.DicDO;
-import com.dfggking.sys.dto.DictDTO;
 
 public interface IDictService {
 	
@@ -16,5 +15,5 @@ public interface IDictService {
 	 * @date 2017年2月24日 下午2:09:36 
 	 * @since 1.0
 	 */
-	List<DicDO> listDict();
+	List<Dic> listDict();
 }
