@@ -159,21 +159,21 @@ template {
   padding: 1em 0;
 }
 .header-title {
-	margin: 0;
-	line-height: normal;
+  margin: 0;
+  line-height: normal;
   color: #333;
 }
 .header-desc {
-	font-size: .8em;
-	color: #999;
+  font-size: .8em;
+  color: #999;
 }
 .login_type-select {
-	margin: 0 .67em 1em;
+  margin: 0 .67em 1em;
 }
 .login_type-select .weui-btn {
-	position: relative;
-	border-radius: 50px;
-	color: #fafafa;
+  position: relative;
+  border-radius: 50px;
+  color: #fafafa;
 }
 .login_type-select .wechat {
 	background: #62D57E;
@@ -185,15 +185,15 @@ template {
   background: #EF8E89;
 }
 .login_type-select .weui-btn .icon {
-	position: absolute;
-	top: 50%;
-	left: 20%;
-	width: 25px;
-	height: 25px;
-	margin-top: -12.5px;
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  width: 25px;
+  height: 25px;
+  margin-top: -12.5px;
 }
 .login_type-select .wechat .icon {
-	background: url(../../img/common/wechat.png);
+  background: url(../../img/common/wechat.png);
   background-size: cover;
 }
 .login_type-select .qq .icon {

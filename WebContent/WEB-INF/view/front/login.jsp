@@ -5,10 +5,10 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
-	<meta charset="UTF-8">
-	<%@ include file="../common/config.jsp"%>
-	<!-- 引入样式 -->
-	<link href="${ctx}/css/front/login/login.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <%@ include file="../common/config.jsp"%>
+  <!-- 引入样式 -->
+  <link href="${ctx}/css/front/login/login.css" rel="stylesheet">
 </head>
 <body>
   <!--[if lt IE 7]>
