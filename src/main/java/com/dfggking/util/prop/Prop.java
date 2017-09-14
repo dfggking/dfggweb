@@ -8,7 +8,6 @@ import java.util.Set;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
-import com.dfggking.Constants;
 import com.dfggking.util.ResourceManager;
 import com.dfggking.util.ResourcesHelper;
 
@@ -25,9 +24,6 @@ public class Prop {
 	/** 日志 */
 	private final static Logger log = LogManager.getLogger(Prop.class);
 
-	/** 国际化管理器 */
-	private final static ResourceManager resourceMgr = ResourceManager.getManager(Constants.PACKAGENAME);
-	
 	/** 配置文件默认路径 */
 	protected final static String PATH_DEFAULT = "wechatConfig.properties";
 
@@ -59,7 +55,7 @@ public class Prop {
 				}
 				initialized = true;
 			} catch (Exception e) {
-				log.warn(resourceMgr.getString("propInitFailed", new Object[] { path }), e);
+//				log.warn(resourceMgr.getString("propInitFailed", new Object[] { path }), e);
 			}
 		}
 	}
