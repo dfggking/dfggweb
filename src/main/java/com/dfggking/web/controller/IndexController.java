@@ -1,8 +1,15 @@
 package com.dfggking.web.controller;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dfggking.common.base.controller.impl.BaseController;
 @Controller
@@ -44,5 +51,8 @@ public class IndexController extends BaseController {
 //          os.flush();
 //          os.close();
 //    }
-
+    
+    
+    
+    
 }
