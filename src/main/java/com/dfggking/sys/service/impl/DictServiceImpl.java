@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.dfggking.common.base.service.BaseService;
 import com.dfggking.entity.Dic;
-import com.dfggking.sys.service.IDictService;
+import com.dfggking.sys.service.DictService;
 
 /**
  * 
@@ -23,7 +23,7 @@ import com.dfggking.sys.service.IDictService;
  */
 @Service
 @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Throwable.class, isolation = Isolation.READ_COMMITTED)
-public class DictServiceImpl extends BaseService implements IDictService {
+public class DictServiceImpl extends BaseService implements DictService {
 
     /**
      * 

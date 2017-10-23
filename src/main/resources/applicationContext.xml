@@ -46,62 +46,28 @@
         </property>
     </bean>
     
-    <!-- 激活@Controller注解模式 -->
-    <mvc:annotation-driven />
-    
-    <!-- 定义事务管理器 -->
-    <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager" scope="singleton">
-        <property name="sessionFactory" ref="sessionFactory" />
-    </bean>
-    <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />
-    
     <bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="dataSource" />
     </bean>
+    <!-- 定义事务管理器 -->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager" scope="singleton">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />
+    
+    <!-- 激活@Controller注解模式 -->
+    <mvc:annotation-driven />
+    
+    
     
     <!-- 设置对类的注解进行扫描，创建Bean及自动依赖注入 -->
     <context:component-scan base-package="com.dfggking.common, com.dfggking.cache, com.dfggking.support" />
     <context:component-scan base-package="com.dfggking.sys.controller, com.dfggking.sys.service" />
     <context:component-scan base-package="com.dfggking.web.controller, com.dfggking.web.service" />
     <context:component-scan base-package="com.dfggking.webapp.controller, com.dfggking.webapp.service" />
-    <!-- 初始化自定义配置 -->
-    
-    <!-- 定义连接管理器 -->
-    <bean id="httpClientConnectionManager" class="org.apache.http.impl.conn.PoolingHttpClientConnectionManager" destroy-method="close">
-        <!-- 最大连接数 -->
-        <property name="maxTotal" value="${httpClient.maxTotal}" />
-        <!-- 设置每个主机地址的并发数 -->
-        <property name="defaultMaxPerRoute" value="${httpClient.defaultMaxPerRoute}" />
-    </bean>
-    <!-- httpclient对象构造器 -->
-    <bean id="httpClientBuilder" class="org.apache.http.impl.client.HttpClientBuilder">
-        <property name="connectionManager" ref="httpClientConnectionManager" />
-    </bean>
-    <!-- 定义httpclient对象 -->
-    <bean id="httpClient" class="org.apache.http.impl.client.CloseableHttpClient" factory-bean="httpClientBuilder" factory-method="build" scope="prototype">
-    </bean>
-    <!-- 定义请求参数 -->
-    <bean id="requestConfig" class="org.apache.http.client.config.RequestConfig" factory-bean="requestConfigBuilder" factory-method="build" />
-    <!-- 轻易清理无效连接线程 -->
-    <bean class="com.dfggking.common.httpclient.IdleConnectionEvictor" destroy-method="shutdown">
-        <constructor-arg index="0" ref="httpClientConnectionManager"></constructor-arg>
-    </bean>
-    <bean id="requestConfigBuilder" class="org.apache.http.client.config.RequestConfig.Builder">
-        <!-- 创建连接的最长时间 -->
-        <property name="connectTimeout" value="${httpClient.connectTimeout}" />
-        <!-- 从连接池中获取到连接的最长时间 -->
-        <property name="connectionRequestTimeout" value="${httpClient.connectionRequestTimeout}" />
-        <!-- 数据传输的最长时间 -->
-        <property name="socketTimeout" value="${httpClient.socketTimeout}" />
-        <!-- 提交请求前测试连接是否可用 -->
-        <property name="staleConnectionCheckEnabled" value="${httpClient.staleConnectionCheckEnabled}" />
-    </bean>
-    
-    
-    
     
     <!-- 配置事务传播特性 -->
     <!-- <tx:advice id="transactionAdvice" transaction-manager="transactionManager"> <tx:attributes> <tx:method name="add*" propagation="REQUIRED" rollback-for="java.lang.Exception" /> <tx:method name="*" propagation="REQUIRED" rollback-for="java.lang.Exception" /> </tx:attributes> </tx:advice> -->
@@ -110,7 +76,7 @@
     <bean id="propertyConfig" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
-                <value>classpath:httpClient.properties</value>
+                <!-- <value>classpath:httpClient.properties</value> -->
                 <value>classpath:jdbc.properties</value>
             </list>
         </property>

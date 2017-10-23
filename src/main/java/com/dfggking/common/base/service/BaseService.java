@@ -10,32 +10,14 @@ import org.springframework.orm.hibernate5.HibernateTemplate;
  * @create 2017-07-07
  * @version 1.0
  */
-public class BaseService{
-    
+public class BaseService {
+    @Autowired
     protected HibernateTemplate hibernateTemplate;
-    
+    @Autowired
     protected JdbcTemplate jdbcTemplate;
     
     public BaseService(){
         
-    }
-    
-    public HibernateTemplate getHibernateTemplate(){
-        return hibernateTemplate;
-    }
-    
-    @Autowired  
-    public void setJdbcTemplate(JdbcTemplate jdbcTemplate){
-        this.jdbcTemplate = jdbcTemplate;
-    }
-    
-    @Autowired
-    public void setHibernateTemplate(HibernateTemplate hibernateTemplate){
-        this.hibernateTemplate = hibernateTemplate;
-    }
-    
-    public JdbcTemplate getJdbcTemplate(){
-        return jdbcTemplate;
     }
     
     

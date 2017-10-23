@@ -10,7 +10,8 @@
   <!-- 引入样式 -->
   <link href="https://cdn.bootcss.com/unslider/2.0.3/css/unslider-dots.css" rel="stylesheet">
   <link href="https://cdn.bootcss.com/unslider/2.0.3/css/unslider.css" rel="stylesheet">
-  <link href="${ctx}/css/front/main.css" rel="stylesheet">
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/front/main.css" rel="stylesheet">
 </head>
 <body>
   <!--[if lt IE 7]>

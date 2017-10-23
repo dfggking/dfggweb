@@ -1,17 +1,14 @@
 package com.dfggking.web.controller;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
-import com.dfggking.common.base.controller.impl.BaseController;
+import com.dfggking.common.base.controller.BaseController;
 @Controller
 @RequestMapping(value = "/web/index")
 public class IndexController extends BaseController {
@@ -25,11 +22,31 @@ public class IndexController extends BaseController {
      * 为什么是final？
      * 防止多logger同时使用时，Logger引用不小心被赋值，这是一个良好的编程习惯。
      */
-    private final static Logger log = LogManager.getLogger(IndexController.class);
+    private final static Logger logger = LogManager.getLogger(IndexController.class);
+    
+    private final static String TEST = "/test";
+    
     /**
-     * 
-     * <p>微信公众号接口握手验证</p>
-     * <pre></pre>
+     * 测试，练靶场
+     * @author dfggking@hotmail.com
+     * @create 2017-10-20
+     * @return ModelAndView
+     * @since 1.0
+     */
+    @RequestMapping(value = TEST)
+    public ModelAndView loginIndex(HttpServletRequest request, HttpServletResponse response){
+        ModelAndView mv = new ModelAndView("/front/test");
+        return mv;
+    }
+    
+    
+    
+    
+    
+    
+    
+    /**
+     * 微信公众号接口握手验证
      * @param signature 加密签名
      * @param timestamp 时间戳
      * @param nonce 随机数

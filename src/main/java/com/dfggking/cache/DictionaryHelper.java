@@ -7,7 +7,7 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 import com.dfggking.entity.Dic;
-import com.dfggking.sys.service.IDictService;
+import com.dfggking.sys.service.DictService;
 /**
  * 
  * <p>字典工具类</p>
@@ -21,7 +21,7 @@ public class DictionaryHelper {
     private final static Logger log = LogManager.getLogger(DictionaryHelper.class);
     
     @Resource
-    private IDictService dictService;
+    private DictService dictService;
     
     /** 系统字典集合 */
     private static List<Dic> dictionaryList = new ArrayList<Dic>();

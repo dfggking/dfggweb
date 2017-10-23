@@ -28,7 +28,7 @@ require.config({
         // 动画类
         'velocity'  : '//cdn.bootcss.com/velocity/1.4.3/velocity.min',
         // 自定义类
-        'jutil'     : 'util/jutil/jutil',
+        'jutil'     : 'util/jutil/Jutil',
         'jmap'      : 'util/jmap/jmap',
     },
     shim : {

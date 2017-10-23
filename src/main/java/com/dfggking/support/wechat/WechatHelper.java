@@ -1,16 +1,10 @@
 package com.dfggking.support.wechat;
 
-import java.text.MessageFormat;
-
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.dfggking.cache.DictionaryHelper;
-import com.dfggking.common.httpclient.HttpClientHelper;
 
 /**
  * 微信接口工具
@@ -24,8 +18,8 @@ import com.dfggking.common.httpclient.HttpClientHelper;
 public class WechatHelper {
 	private final static Logger log = LogManager.getLogger(WechatHelper.class);
 	
-	@Autowired
-	private HttpClientHelper httpClientHelper;
+//	@Autowired
+//	private HttpClientUtil httpClientHelper;
 	protected String APPID; // 应用ID
 	protected String SECRET; // 秘钥
 	protected String Token; 
@@ -64,11 +58,11 @@ public class WechatHelper {
 	protected String getAccessToken(String corpId, String secret) {
 		String accessToken = null;
 		try {
-			log.info("getAccessToken start.{corpId=" + corpId + ",secret:" + secret + "}");
-			String url = MessageFormat.format(getTokenUrl, corpId, secret);
-			String httpRs = httpClientHelper.doGet(url);
-			JSONObject jsonObject = JSON.parseObject(httpRs);
-			accessToken = (String)jsonObject.get("access_token");
+//			log.info("getAccessToken start.{corpId=" + corpId + ",secret:" + secret + "}");
+//			String url = MessageFormat.format(getTokenUrl, corpId, secret);
+//			String httpRs = httpClientHelper.doGet(url);
+//			JSONObject jsonObject = JSON.parseObject(httpRs);
+//			accessToken = (String)jsonObject.get("access_token");
 		} catch (Exception e) {
 			e.printStackTrace();
 			log.error("get access toekn exception", e);

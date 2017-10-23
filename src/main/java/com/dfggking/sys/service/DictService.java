@@ -4,7 +4,7 @@ import java.util.List;
 import com.dfggking.entity.Dic;
 
 
-public interface IDictService {
+public interface DictService {
 	
 	/**
 	 * 
