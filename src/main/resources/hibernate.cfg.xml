@@ -3,12 +3,16 @@
     "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
     "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-    <session-factory name="dfggdb">
+    <session-factory name="dfgg">
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.password">!QAZxsw2</property>
-        <property name="hibernate.connection.url">jdbc:mysql://118.178.195.144:3306/dfgg_db</property>
-        <property name="hibernate.connection.username">jinyf</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/dfgg</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
+        <mapping class="com.dfggking.entity.Article"/>
+        <mapping class="com.dfggking.entity.Attachment"/>
+        <mapping class="com.dfggking.entity.HitCounter"/>
+        <mapping class="com.dfggking.entity.Member"/>
+        <mapping class="com.dfggking.entity.Test"/>
+        <mapping class="com.dfggking.entity.User"/>
     </session-factory>
 </hibernate-configuration>
 <!-- 用于eclipse创建 hibernate configuration -->

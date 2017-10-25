@@ -2,6 +2,7 @@ package com.dfggking.sys.service.impl;
 
 import java.util.List;
 
+import com.dfggking.entity.User;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.dao.DataAccessException;
@@ -11,7 +12,6 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.dfggking.common.base.service.BaseService;
-import com.dfggking.entity.User;
 import com.dfggking.sys.service.UserService;
 import com.dfggking.util.CommonsUtil;
 
@@ -34,12 +34,12 @@ public class UserServiceImpl extends BaseService implements UserService {
      */
     @Override
     public Boolean ifTelExist(String tel) {
-        String hql = "from User where tel=?";
-        @SuppressWarnings("unchecked")
-        List<User> userList = (List<User>) hibernateTemplate.find(hql, new Object[]{ tel });
-        return !userList.isEmpty(); // 如果结果为空=>电话不存在=>return false;
+//        String hql = "from User where tel=?";
+//        List<User> userList = (List<User>) hibernateTemplate.find(hql, new Object[]{ tel });
+//        return !userList.isEmpty(); // 如果结果为空=>电话不存在=>return false;
+        return false;
     }
-    
+
     /**
      * @author dfggking@hotmail.com
      * @date 2017-07-04
@@ -47,7 +47,6 @@ public class UserServiceImpl extends BaseService implements UserService {
      */
     @Override
     public Boolean register(User user) {
-        user.setId(CommonsUtil.uuid());
         try{
             hibernateTemplate.save(user);
         }catch(DataAccessException e){

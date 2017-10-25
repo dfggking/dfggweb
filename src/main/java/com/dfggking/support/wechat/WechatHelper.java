@@ -34,10 +34,10 @@ public class WechatHelper {
 	 * 初始化微信配置
 	 */
 	public void initWechatConfig(){
-		DictionaryHelper dictionaryHelper = DictionaryHelper.getInstance();
-		APPID = dictionaryHelper.getSysDictValueByCode("APPID");
-		SECRET = dictionaryHelper.getSysDictValueByCode("appsecret");
-		Token = dictionaryHelper.getSysDictValueByCode("Token");
+//		DictionaryHelper dictionaryHelper = DictionaryHelper.getInstance();
+//		APPID = dictionaryHelper.getSysDictValueByCode("APPID");
+//		SECRET = dictionaryHelper.getSysDictValueByCode("appsecret");
+//		Token = dictionaryHelper.getSysDictValueByCode("Token");
 		
 		
 		

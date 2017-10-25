@@ -3,6 +3,8 @@ package com.dfggking.webapp.controller;
 import java.util.Objects;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.dfggking.entity.User;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dfggking.common.base.controller.BaseController;
-import com.dfggking.entity.User;
 import com.dfggking.sys.service.UserService;
 
 /**

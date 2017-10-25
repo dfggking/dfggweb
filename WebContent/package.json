@@ -1,0 +1,19 @@
+{
+  "name": "dfggweb",
+  "version": "1.0.0",
+  "description": "npm管理",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "DFGGKING"
+  },
+  "author": "dfggking",
+  "license": "ISC",
+  "devDependencies": {
+    "jquery": "^1.12.4",
+    "lodash": "^4.17.4",
+    "vue": "^2.5.2"
+  }
+}

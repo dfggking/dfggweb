@@ -7,7 +7,7 @@ import com.dfggking.util.prop.PropKey;
 /**
  * 用来计算分页信息的工具类，获取分页信息前先进行计算，即调用handle方法。
  * 
- * @author LiuBo
+ * @author dfggking@hotmail.com
  * 
  */
 public class PageInfo {

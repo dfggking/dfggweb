@@ -4,7 +4,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-import com.dfggking.entity.Dic;
 
 public class TestHibernate1 {
 	
@@ -32,15 +31,15 @@ public class TestHibernate1 {
 		SESSION_FACTORY = new Configuration().configure().buildSessionFactory();
 		Transaction tx = currentSession().beginTransaction();
 		
-		Dic dic = new Dic();
-		dic.setId("1234");
-		dic.setDicName("addByHibernate");
-		dic.setDicValue("addByHibernate");
-		dic.setParentId("123");
-		dic.setDicCode("134556");
-		dic.setRemark("11111111");
-		dic.setSort("11");
-		currentSession().save(dic);
+//		Dic dic = new Dic();
+//		dic.setId("1234");
+//		dic.setDicName("addByHibernate");
+//		dic.setDicValue("addByHibernate");
+//		dic.setParentId("123");
+//		dic.setDicCode("134556");
+//		dic.setRemark("11111111");
+//		dic.setSort("11");
+//		currentSession().save(dic);
 		tx.commit();
 		
 		SESSION_FACTORY.close();

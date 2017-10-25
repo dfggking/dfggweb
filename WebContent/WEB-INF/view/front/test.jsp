@@ -10,18 +10,18 @@
   <%@ include file="../common/config.jsp"%>
   <!-- 引入样式 -->
   <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/css/front/test.css?v=<%= new Date().getTime() %>" rel="stylesheet">
+  <link href="../../../css/front/test.css?v=<%= new Date().getTime() %>" rel="stylesheet">
 </head>
 <body>
   <header class="header">
     <nav class="navbar">
       <ul class="nav">
         <li><a class="">我的</a></li>
-        <li class=""><a class="">首页</a></li>
+        <li><a class="">首页</a></li>
       </ul>
     </nav>
     <div class="avatar">
-      <img class="" src="/img/blog-avatar.jpg" />
+      <img class="" src="../../../img/blog-avatar.jpg" />
     </div>
     <p class="nickname">DFGGKING</p>
     <span class="remark">大风刮过</span>
@@ -86,7 +86,7 @@
   <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script>
   $(function(){
-      
+    console.info(document.cookie);
   });
   </script>
 </body>

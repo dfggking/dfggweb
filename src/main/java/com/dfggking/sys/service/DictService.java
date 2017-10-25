@@ -1,7 +1,6 @@
 package com.dfggking.sys.service;
 
 import java.util.List;
-import com.dfggking.entity.Dic;
 
 
 public interface DictService {
@@ -15,5 +14,5 @@ public interface DictService {
 	 * @date 2017年2月24日 下午2:09:36 
 	 * @since 1.0
 	 */
-	List<Dic> listDict();
+//	List<Dic> listDict();
 }

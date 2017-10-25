@@ -1,8 +1,9 @@
 package com.dfggking.web.service;
 
-import java.util.List;
-
+import com.dfggking.common.dao.PageInfo;
 import com.dfggking.entity.Article;
+
+import java.util.List;
 
 /**
  * @author dfggking@hotmail.com
@@ -10,8 +11,30 @@ import com.dfggking.entity.Article;
  * @since 1.0
  */
 public interface ArticleService {
-    
-    
-    List<Article> queryArticleByUserId();
-    
+    /**
+     * 添加文章
+     * @param article
+     * @return
+     */
+    Boolean save(Article article);
+
+
+
+
+    /**
+     * 查询文章列表
+     * @param userId
+     * @return List<Article>
+     */
+    List<Article> findByUserId(int userId, PageInfo pageInfo);
+
+    /**
+     * 根据ID查询文章
+     * @param id
+     * @return Article
+     */
+    Article findById(int id);
+
+
+
 }

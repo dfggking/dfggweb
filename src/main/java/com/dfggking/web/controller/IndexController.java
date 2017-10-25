@@ -9,6 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dfggking.common.base.controller.BaseController;
+
+/**
+ *
+ * @author dfggking@hotmail.com
+ * @create 2017-10-23
+ * @since 1.0
+ */
 @Controller
 @RequestMapping(value = "/web/index")
 public class IndexController extends BaseController {

@@ -4,17 +4,23 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dfggking.common.base.controller.BaseController;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * 
  * 系统管理
- * @author jinyf
+ * @author dfggking@hotmail.com
  * @date 2017年2月25日 上午11:00:41
  * @since 1.0
  */
@@ -24,6 +30,7 @@ public class SysMainController extends BaseController {
     private final static Logger logger = LogManager.getLogger(SysMainController.class);
     
     private final static String SYS_MAIN_URL = "main";
+    private final static String SYS_TESTJSON = "testjson";
     
     /**
      * 管理后台主页路径
@@ -35,9 +42,9 @@ public class SysMainController extends BaseController {
     @RequestMapping(value = SYS_MAIN_URL)
     public String sysMain(HttpServletRequest request, HttpServletResponse response){
         logger.debug("SYS_MAIN_PAGE");
-        
-        
-        
+
         return "/sys/main";
     }
+
+
 }
