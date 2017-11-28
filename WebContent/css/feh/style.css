@@ -1,0 +1,139 @@
+@charset "utf-8";
+.header {
+  position: relative;
+  z-index: 110;
+  height: 72px;
+  background: #fff;
+  color: #000;
+  -webkit-box-shadow: 0 3px 4px -2px rgba(6,0,1,0.1);
+  -moz-box-shadow: 0 3px 4px -2px rgba(6,0,1,0.1);
+  box-shadow: 0 3px 4px -2px rgba(6,0,1,0.1);
+}
+.header-nav-content {
+  width: 1200px;
+  height: 72px;
+  margin: 0 auto;
+}
+.header .header-nav-content .logo {
+  float: left;
+  width: 210px;
+  height: 72px;
+  text-align: center;
+  font-weight: 700;
+  color: #000;
+  text-decoration: none;
+}
+.header .header-nav-content .logo .logo-span {
+  display: inline-block;
+  margin: 22px auto 0;
+}
+.header .header-nav-content .logo .logo-span span {
+  float: left;
+  line-height: 1;
+  font-size: 28px;
+}
+
+.header .header-nav-content .header-user {
+  float: right;
+  list-style: none;
+  line-height: 72px;
+  font-size: 14px;
+  margin: 0;
+  padding: 0 34px;
+}
+.header .header-nav-content .header-user>li {
+  float: left;
+}
+.header .header-nav-content .header-user .notice-message {
+  position: relative;
+  margin-right: 24px;
+}
+.header .header-nav-content .header-user .notice-message .message-wrap {
+  height: 40px;
+  line-height: 40px;
+  margin: 16px 0;
+}
+.header .header-nav-content .header-user .notice-message .glyphicon-envelope {
+  line-height: 40px;
+  font-size: 20px;
+}
+.header .header-nav-content .header-user .notice-message .notice-message-hover {
+  display: none;
+  position: absolute;
+  top: 62px;
+  left: -25px;
+}
+.header .header-nav-content .header-user .notice-message .hover-top {
+  width: 120px;
+  height: 11px;
+  background: url("/img/feh/hover-top.png");
+}
+.header .header-nav-content .header-user .notice-message ul {
+  list-style: none;
+  margin-bottom: 0;
+  padding: 0;
+  border: 1px solid #e6ebf2;
+  border-top: 0;
+  background: #fff;
+}
+.header .header-nav-content .header-user .notice-message li {
+  padding: 10px;
+  font-size: 14px;
+  line-height: 14px;
+  cursor: pointer;
+}
+.header .header-nav-content .header-user .notice-message li:hover {
+  background: #f3f5f5;
+}
+.header .header-nav-content .header-user .notice-message li.li-seperator {
+  padding-top: 0;
+  padding-bottom: 0px;
+  cursor: auto;
+}
+.header .header-nav-content .header-user .notice-message li .action-seperator {
+  height: 1px;
+  background: #e6ebf2;
+}
+.header .header-nav-content .header-user .notice-message li .action {
+  padding: 10px;
+}
+.header .header-nav-content .header-user .seperator {
+  position: relative;
+  top: 24px;
+  width: 1px;
+  height: 26px;
+  margin-right: 24px;
+  background: #eeeeee;
+}
+.header .header-nav-content .header-user .author {
+  position: relative;
+  min-width: 75px;
+  cursor: pointer;
+}
+.header .header-nav-content .header-user .author .avatar {
+  position: relative;
+  float: left;
+}
+.header .header-nav-content .header-user .author .avatar .portrait {
+  width: 32px;
+  height: 32px;
+  margin-right: 14px;
+  border: 1px solid #e6ebf2;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.header .header-nav-content .header-user .author .name {
+  display: inline-block;
+  position: relative;
+  float: left;
+  min-width: 60px;
+  margin-right: 10px;
+  font-size: 14px;
+  color: #2b333e;
+}
+/* header end */
+
+
+

@@ -4,7 +4,7 @@ package com.dfggking.test;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
-import com.dfggking.util.StringHelper;
+import com.dfggweb.util.StringHelper;
 
 public class StringHelperAPI {
 	private static Logger logger = LogManager.getLogger(LoggerMain.class);

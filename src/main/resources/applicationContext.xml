@@ -42,6 +42,8 @@
                 <prop key="hibernate.format_sql">false</prop><!-- 格式化SQL，显示优化 -->
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</prop><!-- 设置数据库方言 -->
                 <prop key="hibernate.connection.autocommit">false</prop>
+                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/dfgg</prop>
+                <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
             </props>
         </property>
     </bean>

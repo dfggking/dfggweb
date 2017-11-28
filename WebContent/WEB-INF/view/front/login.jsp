@@ -30,11 +30,12 @@
     
   </header><!-- nav end -->
   <div class="container">
-    <form action="${ctx}/web/login/signIn" method="post">
+    
+    
+    
       <input type="text" name="username">
       <input type="password" name="password">
-      <button>提交</button>
-    </form>
+      <button id="J_login">提交</button>
   </div><!-- container end -->
   <footer>
     
@@ -57,6 +58,16 @@
                 $('html').css('overflow','auto');
             }
         });
+
+        $('#J_login').click(function(){
+            $.post('/web/login/signIn', {
+                username: 'dfggking',
+                password: '123456'
+            }, function(args){
+                console.info(args);
+            })
+        })
+        
     });
   </script>
 </body>

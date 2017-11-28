@@ -12,6 +12,7 @@
   "author": "dfggking",
   "license": "ISC",
   "devDependencies": {
+    "bootstrap": "^3.3.7",
     "jquery": "^1.12.4",
     "lodash": "^4.17.4",
     "vue": "^2.5.2"

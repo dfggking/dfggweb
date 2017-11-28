@@ -7,12 +7,16 @@
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/dfgg</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
-        <mapping class="com.dfggking.entity.Article"/>
-        <mapping class="com.dfggking.entity.Attachment"/>
-        <mapping class="com.dfggking.entity.HitCounter"/>
-        <mapping class="com.dfggking.entity.Member"/>
-        <mapping class="com.dfggking.entity.Test"/>
-        <mapping class="com.dfggking.entity.User"/>
+        <mapping class="com.dfggweb.entity.Article"/>
+        <mapping class="com.dfggweb.entity.Attachment"/>
+        <mapping class="com.dfggweb.entity.HitCounter"/>
+        <mapping class="com.dfggweb.entity.Member"/>
+        <mapping class="com.dfggweb.entity.Test"/>
+        <mapping class="com.dfggweb.entity.Permission"/>
+        <mapping class="com.dfggweb.entity.Role"/>
+        <mapping class="com.dfggweb.entity.RolePermission"/>
+        <mapping class="com.dfggweb.entity.UserRole"/>
+        <mapping class="com.dfggweb.entity.User"/>
     </session-factory>
 </hibernate-configuration>
 <!-- 用于eclipse创建 hibernate configuration -->
